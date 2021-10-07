@@ -1,16 +1,21 @@
 /*
-Yuki Feng + Ivina Wang
-Duckies: Paul + Sealie
+Yuki Feng
 APCS
-HW 12 -- On Elder Individuality and the Elimination of Radio Fuzz
-2021 10 5
+HW 13 -- Where do BigSibs Come From
+2021 9 30
 */
 
-/*
-DISCO:
-you can set a new message so that the variables come together to print out the greeting.
+/*DISCO:
+I can reference it outside of the class but I wonder what the point of the constrcutor is?
 QCC:
-i am still confused on setting variables. I think it is because you have to say the type of variable it is and then also assign it a value.
+I have so many errors lol.
+	2 errors
+	Yukis-Air:13_hatch YukiFeng$ javac Greet.java
+	Greet.java:35: error: illegal start of expression
+	public static void SetHelloMsg(String hello){
+	^
+	Greet.java:39: error: class, interface, or enum expected
+	}
 */
 
 public class Greet {
@@ -36,5 +41,12 @@ public class Greet {
 		person.setHelloMsg("Sup");
 		greeting = person.greet("mom");
 		System.out.println(greeting);
+	}
+
+	public String BigSib(String hello){
+		String helloMsg;
+	public static void SetHelloMsg(String hello){
+	    helloMsg = hello;
+	  }
 	}
 }
