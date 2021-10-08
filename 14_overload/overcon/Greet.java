@@ -2,11 +2,12 @@
 Purple Turtle- Yuki Feng (Paul), Ivina Wang (Sealie), Faiyaz Rafee (Pivot and Atlas)
 APCS
 HW14 – Customize Your Creation
+2021 10 7
 */
 
 /*
 DISCO:
-QCC:
+QCC: is using overloading constructors the preferred way for flexibility?
 */
 
 public class Greet{
@@ -25,8 +26,5 @@ public class Greet{
     System.out.println(greeting);
     greeting = dotCom.greet("mom");
     System.out.println(greeting);
-  }
-
-  public BigSib(){
   }
 }
