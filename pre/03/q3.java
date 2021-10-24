@@ -1,4 +1,4 @@
-public class questions03 {
+public class q3 {
   public static void zoop() {
     baffle();
     System.out.print("You wugga ");

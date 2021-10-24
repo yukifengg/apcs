@@ -18,12 +18,5 @@ public class Time{
     System.out.println(minute2);
     System.out.println(second2);
     System.out.println((hour2*3600 + minute2*60 + second2) - (hour*3600 + minute*60 + second) + " seconds");
-    // 3.12 exercise 2
-    double celsius, fahrenheit;
-    Scanner in = new Scanner(System.in);
-    System.out.print("Type in degrees celsius:");
-    celsius = in.nextDouble();
-    fahrenheit = (9.0/5.0) * celsius + 32.0;
-    System.out.println(celsius + " C = " + fahrenheit + " F");
   }
 }
