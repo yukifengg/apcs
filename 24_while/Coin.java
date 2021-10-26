@@ -9,7 +9,7 @@ public class Coin {
 
   // attributes aka instance vars
   private double value;
-  private String upFace;
+  private String upFace, name;
   private String denomination;
   private int flipCtr, headsCtr, tailsCtr;
   private double bias = .5;
@@ -31,10 +31,10 @@ public class Coin {
       postcond:
   ***/
   public Coin( String s ) {
-  	this();
-  	
+  this();
+
     //this.denomination = s;
-    name = s;
+    this.name = s;
     assignValue(s);
   }
 
@@ -46,42 +46,34 @@ public class Coin {
   ***/
   public Coin( String s, String nowFace ) {
     // this.denomination = s;
-    String oldFace = upFace;
+    //String oldFace = upFace;
+    this(s);
     upFace = nowFace;
+    }
 
   // Accessors...
   // ----------------------------
-  /*
-  public String getUpFace(String newFace) {
-    String face = upFace;
-    upFace = newFace;
-    return face;
+
+  public String getUpFace() {
+    return upFace;
   }
 
-  public int getFlipCtr(int flip) {
-    int flipNum = flipCtr;
-    flipCtr = flip;
-    return flipNum;
+  public int getFlipCtr() {
+    return flipCtr;
   }
 
-  public double getValue(int val) {
-    int amount = value;
-    value = val;
-    return amount;
+  public double getValue() {
+    return value;
   }
 
-  public int getHeadsCtr(int head) {
-    int headNum = headsCtr;
-    headsCtr = head;
-    return headNum;
+  public int getHeadsCtr() {
+    return headsCtr;
   }
 
-  public int getTailsCtr(int tail) {
-    int tailNum = tailsCtr;
-    tailsCtr = tail;
-    return tailNum;
+  public int getTailsCtr() {
+    return tailsCtr;
   }
-  */
+
   // ----------------------------
 
   /***
@@ -92,26 +84,26 @@ public class Coin {
    ***/
 
   public double assignValue( String s ) {
-    if(s.equals ("penny")){
-		    value = 0.01;
-		}
-		else if(s.equals ("nickel")){
-		    value = 0.25;
-		}
-		else if(s.equals ("dime")){
-		    value = 0.10;
-		}
-		else if(s.equals ("quarter")){
-		    value = 0.25;
-		}
-		else if(s.equals ("half dollar")){
-		    value = 0.50;
-		}
-		else if (s.equals ("dollar")){
-		    value = 1.00;
-		}
-		return value;
-  }
+	if(s.equals ("penny")){
+	   value = 0.01;
+	}
+	else if(s.equals ("nickel")){
+	   value = 0.25;
+	}
+	else if(s.equals ("dime")){
+	   value = 0.10;
+	}
+	else if(s.equals ("quarter")){
+	   value = 0.25;
+	}
+	else if(s.equals ("half dollar")){
+	   value = 0.50;
+	}
+	else if (s.equals ("dollar")){
+	   value = 1.00;
+	}
+	return value;
+	  }
 
   /***
       reset() -- initialize a Coin
@@ -119,7 +111,6 @@ public class Coin {
       postcond: Coin's attribs reset to starting vals
   ***/
   public void reset( String s, double d ) {
-    //upFace = nowFace;
     flipCtr = 0;
     tailsCtr  = 0;
     headsCtr = 0;
@@ -136,18 +127,8 @@ public class Coin {
    * Either headsCtr or tailsCtr incremented by 1, as approp.
    * Returns "heads" or "tails"
    ***/
-  
+
   public String flip() {
-    /*Double[] values = {0.01, 0.05, 0.10, 0.25, 0.50, 1.00};
-    int i = 0;
-    flipCtr = 0;
-    if (value >= 0.0 && value <= 1.0) {
-      value = value.random();
-    }
-    for (i=0; i<values.length(); i ++) {
-      System.out.println(value);
-      flipCtr += 1;
-    }*/
     double randDbl = Math.random();
     if (randDbl < bias) {
     upFace = "heads";
@@ -170,10 +151,11 @@ public class Coin {
   public boolean equals( Coin other ) {
     // return (upFace.equals(other.upFace);
     if (upFace == other.upFace){
-			return true;
+		return true;
 		} else {
-			return false;
+		return false;
 		}
+
   }
 
   /***
@@ -181,18 +163,12 @@ public class Coin {
    * precond: n/a
    * postcond: Return String comprised of name and current face
    ***/
+
   public String toString() {
-    String reStr = "\nYour coin:\n-------------";
-    reStr += "\nCurrent denomination: " + denomination;
-    reStr += "\nCurrent face: " + upFace;
-    return reStr;
-    // return "" + name + " -- " + upFace;
+    //String reStr = "\nYour coin:\n-------------";
+    //reStr += "\nCurrent denomination: " + denomination;
+    //reStr += "\nCurrent face: " + upFace;
+    //return reStr;
+    return "" + name + " -- " + upFace;
   }
-
-  public static void main(String[] args){
-    Coin mine = new Coin();
-    // mine.name("penny");
-  }
-
 }//end class
-

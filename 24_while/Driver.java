@@ -1,6 +1,5 @@
 /***
     driver for class Coin
-
     ~~~ SUGGESTED WORKFLOW: ~~~
     1. Compile this file and run. Note anything notable.
     2. Move the "TOP" line down, so that it is below the first statement.
@@ -14,13 +13,13 @@
 /*
 Mochi Yoshi - Yuki Feng, Courtney Huang
 APCS
-HW 23: What Does Equality Look Like?
-2021 10 23
-Time spent: 1.5 hours */
+HW 24: Get It While You Can
+2021-10-25
+Time spent: 1 hour */
 
 /*
 QCC:
-why does order matter? i thought since java was compilable, it didn't matter what order we wrote code.
+
 DISCO:
 */
 
@@ -28,9 +27,10 @@ public class Driver {
 
   public static void main( String[] args ) {
 
+
     //build Objects from blueprint specified by class Coin
 
-
+/*
     //test default constructor
     //===================TOP==========================
     Coin mine = new Coin();
@@ -47,9 +47,9 @@ public class Driver {
       System.out.println("wayne: " + wayne);
 
       //test flip() method
-      System.out.println("\nAfter flipping...");
-       yours.flip();
-       wayne.flip();
+      System.out.println("After flipping...");
+      yours.flip();
+      wayne.flip();
       System.out.println("yours: " + yours);
       System.out.println("wayne: " + wayne);
 
@@ -60,10 +60,42 @@ public class Driver {
       else {
         System.out.println( "No match. Firestarter you can not be." );
       }
+      */
+
+      //hw24
+	Coin bob = new Coin("dime" , "tails");
+	Coin jeff = new Coin("nickel" , "heads");
+
+	      int x = 0;
+	      int y = 0;
+
+	  while (x < 10) {
+	      bob.flip();
+	      if (bob.getUpFace().equals("heads")){
+		      x += 1;
+	      }
+      }
+
+	  while (y < 22) {
+	      bob.flip();
+	      if (bob.equals(jeff)){
+		      x += 1;
+	      }
+      }
+
+	  while ((y%2005) < 65536) {
+		  bob.flip();
+		  if (bob.equals(jeff)){
+			  x+=1;
+		  }
+	  }
+	  }
+
+	System.out.println( "Heads: " + bob.getHeadsCtr() );
+
 
       // ====================BOTTOM======================*/
 
   }//end main()
 
 }//end class
-
