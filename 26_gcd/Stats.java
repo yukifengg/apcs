@@ -15,7 +15,6 @@ then you use a loop to find the gcd by subtracting the smaller int from bigger i
 in recursion, you keep on calling that formula until you reach it whereas in regular while loop you just stop once youve come to the equal.
 */
 public class Stats {
-    //private int i;
 
     public static int gcd(int a, int b) {
         int i;
