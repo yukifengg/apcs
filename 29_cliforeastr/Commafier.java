@@ -1,5 +1,5 @@
 /*
-Princess Peach: Paul Serbenscu, Jaylen Zeng, Yuki Feng
+Princess Peach: Paul Serbenascu, Jaylen Zeng, Yuki Feng
 HW29 - Which Way Do You Roll?
 2021-11-2
 0.5
