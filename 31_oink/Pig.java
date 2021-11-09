@@ -47,6 +47,7 @@ String plstring5=pigLatinWord("egg"); //begin with vowel
 String plstring6=pigLatinWord("store"); //consonant cluster word
 String plstring7=pigLatinWord("eunoia"); //contains all vowels
 String plstring8=pigLatinWord("nymphly"); //contains no vowel
+String plstring9=pigLatinWord("tsk");
 if (plstring1=="-1")
 System.out.println("Pig Latin is not possible, the string must have at least a vowel.");
 else
@@ -58,5 +59,6 @@ System.out.println(plstring5);
 System.out.println(plstring6);
 System.out.println(plstring7);
 System.out.println(plstring8);
-}   
+System.out.println(plstring9);
+}
 }
