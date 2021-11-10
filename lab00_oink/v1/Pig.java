@@ -189,11 +189,8 @@ public class Pig {
 
     public static void main(String[] args) {
       String ans="";
-      System.out.println("beginsWithY" + beginsWithY("Bellow"));
-      System.out.println("firstVowel: " + firstVowel("yeah")); // y
-      System.out.println("isAY: " + isAY("y"));
-        for(String word: args) {
-        ans += engToPig(word)+" ";
+      for(String word: args) {
+      ans += engToPig(word)+" ";
       }
       //System.out.println( "allVowels \t" + allVowels(word) );
       //System.out.println( "allConsonants \t" + allConsonants(word) );
