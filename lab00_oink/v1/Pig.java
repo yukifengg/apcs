@@ -28,11 +28,11 @@ public class Pig {
     private static final String space = " ";
 
     public static boolean hasA (String w, String letter) {
-       return w.indexOf(letter) != -1;
+      return w.indexOf(letter) != -1;
     }
 
     public static boolean isAVowel(String letter) {
-       return VOWELS.indexOf(letter) != -1;
+      return VOWELS.indexOf(letter) != -1;
     }
 
     public static boolean isAY(String letter) {
@@ -44,14 +44,14 @@ public class Pig {
     }
 
     public static int countVowels(String w) {
-       return allVowels(w).length();
+      return allVowels(w).length();
     }
 
     public static int countSpaces(String w) {
       String ans = "";
       for (int i = 0; i < w.length(); i++) {
-         if (isASpace(w.substring(i,i+1)))
-            ans += w.substring(i, i+1);
+        if (isASpace(w.substring(i,i+1)))
+        ans += w.substring(i, i+1);
       } return ans.length();
     }
 
@@ -60,22 +60,22 @@ public class Pig {
     }
 
     public static boolean hasAVowel(String w) {
-       return (countVowels(w) > 0);
+      return (countVowels(w) > 0);
     }
 
     public static String allVowels(String w) {
-       String ans = "";
-       for (int i = 0; i < w.length(); i++) {
-          if (isAVowel(w.substring(i,i+1)))
-             ans += w.substring(i, i+1);
-       } return ans;
+      String ans = "";
+      for (int i = 0; i < w.length(); i++) {
+        if (isAVowel(w.substring(i,i+1)))
+        ans += w.substring(i, i+1);
+      } return ans;
     }
 
     public static String allConsonants(String w) {
       String ans = "";
       for (int i = 0; i < w.length(); i++) {
-         if (!isAVowel(w.substring(i,i+1)))
-            ans += w.substring(i, i+1);
+        if (!isAVowel(w.substring(i,i+1)))
+        ans += w.substring(i, i+1);
       } return ans;
     }
 
@@ -139,7 +139,7 @@ public class Pig {
             beginsWithUpper("apple") -> false
       =====================================*/
     public static boolean beginsWithUpper( String w ) {
-	     return isUpperCase(w.substring(0,1) );
+      return isUpperCase(w.substring(0,1) );
     }
 
     public static String engToPigHelper(String w) {
@@ -170,20 +170,20 @@ public class Pig {
         return ans;
     }
 
-    public static String engToPig(String w){
-      w = engToPigHelper(w);
-      String puncs = "";
-      String letters = "";
-      for(int i=0;i<w.length();i++){
-        if (hasPunc(w.substring(i,i+1))){
-        puncs += w.substring(i,i+1);
-        }
-        else{
-          letters += w.substring(i,i+1);
-        }
-      }
-      return letters + puncs;
-    }
+     public static String engToPig(String w){
+       w = engToPigHelper(w);
+       String puncs = "";
+       String letters = "";
+       for(int i=0;i<w.length();i++){
+         if (hasPunc(w.substring(i,i+1))){
+         puncs += w.substring(i,i+1);
+         }
+         else{
+           letters += w.substring(i,i+1);
+         }
+       }
+       return letters + puncs;
+     }
 
 
 
