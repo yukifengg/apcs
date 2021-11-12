@@ -131,7 +131,7 @@ public class Pig {
 
     //splitting multiple word input into arrays..?
 
-    public static String[] wordAloner (String w) {
+    /* public static String[] wordAloner (String w) {
       // String words[] = w.split(" ");
       // for (int i = 0; i <= w.length(); i++) {
       //    return (words[i]);
@@ -144,10 +144,17 @@ public class Pig {
              System.out.print(words[i]);
         } return null;
     }
+    */
 
     public static String engToPig (String w) {
       String ans = "";
-      if (beginsWithVowel(w)) {
+      if (beginsWithUpper(w)) {
+        w = w.substring(0).toLowerCase();
+        for (int i = 0, i <= w.length(); i++) {
+          ans = w.substring(0).toLowerCase() + w.substring(1, -1)
+        }
+      }
+      else if (beginsWithVowel(w)) {
         ans = w + "way";
       }
       else if (!hasAVowel(w)) {
@@ -161,7 +168,8 @@ public class Pig {
     }
 
     public static void main(String[] args) {
-    /* System.out.println("isAVowel: " + isAVowel("f") + isAVowel("a")); //expected result:false
+    /*
+    System.out.println("isAVowel: " + isAVowel("f") + isAVowel("a")); //expected result:false
     System.out.println("countVowels: " + countVowels("banana") ); //3 vowels
     System.out.println("hasAVowel: " + hasAVowel("aura")); // true
     System.out.println("allVowels: " + allVowels("eunoia")); // euoia

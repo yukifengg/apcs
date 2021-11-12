@@ -91,7 +91,7 @@ public class Pig {
     }
 
     public static boolean beginsWithY(String w) {
-      return isAY(w.toLowerCase().substring(0, 1));
+      return isAY(w.substring(0,1));
     }
 
     /*=====================================
@@ -148,23 +148,19 @@ public class Pig {
       if (beginsWithVowel(w) && !beginsWithY(w)) {
         ans = w + "way";
       }
-      //begins w y
-      else if (beginsWithY(w)) {
-        int vPos = w.indexOf(firstVowel (w.substring(1)));
-        ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
-      }
-
       //only consonants
       if (!hasAVowel(w)) {
         ans = w;
       }
-
-      //begins w consonant
+      // if (beginsWithY(w)) {
+      //   int vPos = w.indexOf(firstVowel (w));
+      //   ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
+      // }
+      //begins w consonant or y
       if (!beginsWithVowel(w)){
         int vPos = w.indexOf(firstVowel (w));
         ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
       }
-
       //first letter capital
       if (beginsWithUpper(w)) {
         ans = ans.toLowerCase();
