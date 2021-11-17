@@ -1,0 +1,26 @@
+DEBUGGING:
+3 types of errors:
+ - compile-time: indicates something wrong with syntax of program
+	(ex: omit semicolon at end of statement)
+ - run-time: produced if something goes wrong while program is running
+	(ex: infinite recursion causes StackOverflowError)
+ - logic: cause program to do wrong thing
+	(ex: expression may not be evaluated in order you expect)
+
+
+D.1 COMPILE-TIME ERRORS
+ - incremental development is key to start working with a program and adding small bits of code at a time -> helps avoid making errors in first place
+ - if compiler spews error messages, only the first error is truly reliable. Fix one error at a time then recompile. 
+ - if getting weird compiler message that won't go away, read carefully and check which line the error occurred. Error will be prior to location of error message. Tip: check entire program for indentation so you can spot better syntax errors:
+	- all methods definitions should be nested in class definition. All program statements should be within method
+	- check for capitalization
+	- check for semicolons at end of statements
+	- make sure strings have matching quotation marks. Tip: use "" for string and '' for char.
+	- for assignment statements, make sure type on left is same as type on right
+	- invoking value method, do something with result. If with void method, make sure nothing w result
+	- invoking instance method, make sure you invoke on object w right type. Invoking static method where defined, make sure to specify the class nun.
+	- invoking instant emethod, refer to instance variables without mention given object. 
+
+
+
+		
