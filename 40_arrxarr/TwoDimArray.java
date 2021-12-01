@@ -13,10 +13,12 @@ public class TwoDimArray
 {
   //postcond: prints each row of 2D int array a on its own line
   //          uses a FOR loop
-  public static void print1( int[][] a )
-  {
+  public static void print1( int[][] a ) {
     for (int i=0; i < a.length; i++){
-      System.out.println(i);
+      for (int j=0; j < a[i].length; j++){
+        System.out.println(a[i][j]);
+      }
+      
     }
   }
 
@@ -67,8 +69,8 @@ public class TwoDimArray
       int [][] m1 = new int[4][2];
       int [][] m2 = { {2,4,6}, {3,5,7} };
       int [][] m3 = { {2}, {4,6}, {1,3,5} };
-      print1(m1);
-      //print1(m2);
+      // print1(m1);
+      print1(m2);
       //print1(m3);
 
 
@@ -88,4 +90,3 @@ public class TwoDimArray
   }
 
 }//end class TwoDimArray
-
