@@ -84,8 +84,10 @@ public class Rational{
       this.denominator = this.denominator / divisor;
     }
 
-    public void compareTo(Rational a){
-
+    public int compareTo(Rational a){
+      Rational w = new Rational(this.numerator, this.denominator);
+      w.subtract(a);
+      return w.numerator;
     }
 
     public static void main(String [] args){
@@ -104,6 +106,8 @@ public class Rational{
 
         // Rational w = new Rational(4,0);
         // System.out.println(w.toString());
-
+        System.out.println(r.compareTo(t));
+        System.out.println(r.compareTo(r));
+        System.out.println(s.compareTo(r));
     }
 }
