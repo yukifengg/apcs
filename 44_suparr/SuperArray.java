@@ -101,7 +101,15 @@ public class SuperArray
   //shifts elements left to fill in newly-empted slot
   public void remove( int index )
   {
-
+    _size --;
+    for (int i = 0; i <= _size-1; i++) {
+      if (i < index) {
+        _data[i] = _data[i];
+      }
+      else {
+        _data[i] = _data[i+1];
+      }
+    }
   }
 
 
@@ -165,14 +173,14 @@ public class SuperArray
 
       System.out.println("Printing populated SuperArray mayfield...");
       System.out.println(mayfield);
-/*
+
       mayfield.remove(3);
       System.out.println("Printing SuperArray mayfield post-remove...");
       System.out.println(mayfield);
       mayfield.remove(3);
       System.out.println("Printing SuperArray mayfield post-remove...");
       System.out.println(mayfield);
-*/
+
       mayfield.add(3,99);
       System.out.println("Printing SuperArray mayfield post-insert...");
       System.out.println(mayfield);
