@@ -1,7 +1,7 @@
 /*
 Java Coffee - Courtney Huang, Jason Yang, Yuki Feng
 APCS1 pd7
-HW44 -- expanding SuperArray functionality, encapsulation
+HW44 -- Array of Grade 316
 2021-12-08
 Time Spent: 0.5 hr
 */
@@ -78,7 +78,6 @@ public class SuperArray
   //adds an item after the last item
   public void add( int newVal )
   {
-    /* YOUR IMPLEMENTATION HERE */
     _data[_size] = newVal;
     _size ++;
   }
@@ -87,12 +86,14 @@ public class SuperArray
   //inserts an item at index
   public void add( int index, int newVal )
   {
-    _data[index] = newVal;
-    
-    for (int i = 0; i >= _size-1; i--) {
-    	_data[i] = _data[i+1];
+    _size ++;
+    for (int i = _size-1; i > 0; i--) {
+    	_data[i] = _data[i-1];
+      if (i == index+1) {
+        _data[index] = newVal;
+        break;
+      }
     }
-    ;
   }
 
 
@@ -100,7 +101,7 @@ public class SuperArray
   //shifts elements left to fill in newly-empted slot
   public void remove( int index )
   {
-  	
+
   }
 
 
@@ -187,4 +188,3 @@ public class SuperArray
 
 
 }//end class
-
