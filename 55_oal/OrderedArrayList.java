@@ -21,8 +21,8 @@ remove(int i) -> O(n)
   - when you remove at index you have to shift each element over thus multiple passes
 remove() -> O(1)
   - pass thru once to remove element at end
-addLinear(newVal) -> O(1)
-  - adding to the end so pass once
+addLinear(newVal) -> O(n)
+  - adding to the end and you traverse thru the array to add it there
 addBinary(int i, newVal) -> O(log(n))
   - because binary is adding at index and shifting elements there will be no constant equation but logaithmic because it sorts from both directions
 */
