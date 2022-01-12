@@ -11,7 +11,20 @@ QCC:
 */
 
 /*
-Insert/augment descriptive comment preceding each method of OrderedArrayList, categorizing its execution time…
+size() -> O(1)
+  - takes least time bc only need to pass thru once since you are not changing any element in array
+toString() -> O(1)
+  - one pass
+get(int i) ->
+  - O(1) because it traverses once only bc it only needs one pass to find the item
+remove(int i) -> O(n)
+  - when you remove at index you have to shift each element over thus multiple passes
+remove() -> O(1)
+  - pass thru once to remove element at end
+addLinear(newVal) -> O(1)
+  - adding to the end so pass once
+addBinary(int i, newVal) -> O(log(n))
+  - because binary is adding at index and shifting elements there will be no constant equation but logaithmic because it sorts from both directions
 */
 import java.util.ArrayList;
 
