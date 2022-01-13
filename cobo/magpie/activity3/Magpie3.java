@@ -1,10 +1,10 @@
 /**
  * A program to carry on conversations with a human user.
- * This version: 
+ * This version:
  * <ul><li>
- *    Uses advanced search for keywords 
- * </li></ul> 
- *    
+ *    Uses advanced search for keywords
+ * </li></ul>
+ *
  * @author Laurie White
  * @version April 2012
  */
@@ -12,7 +12,7 @@ public class Magpie3
 {
 	/**
 	 * Get a default greeting
-	 * 
+	 *
 	 * @return a greeting
 	 */
 	public String getGreeting()
@@ -22,35 +22,46 @@ public class Magpie3
 
 	/**
 	 * Gives a response to a user statement
-	 * 
+	 *
 	 * @param statement
 	 *            the user statement
 	 * @return a response based on the rules given
 	 */
-	public String getResponse(String statement)
-	{
-		String response = "";
-		if (statement.length() == 0)
-		{
-			response = "Say something, please.";
-		}
-		else if (findKeyword(statement, "no") >= 0)
-		{
-			response = "Why so negative?";
-		}
-		else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
-				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0)
-		{
-			response = "Tell me more about your family.";
-		}
-		else
-		{
-			response = getRandomResponse();
-		}
-		return response;
-	}
+	 public String getResponse(String statement){
+ 		String response = "";
+ 		if (statement.trim().length() == 0){
+			response = "say something";
+		} else if (statement.indexOf("no") >= 0)	{
+ 			response = "Why so negative?";
+ 		} else if (statement.indexOf("dog") >= 0 || statement.indexOf("cat") >= 0) {
+ 					response = "Tell me more about ur pets.";
+ 				}
+ 		else if (statement.indexOf("Mr. Mykolyk") >= 0 || statement.indexOf("Mykolyk") >= 0) {
+ 					response = "He sounds like a good teacher";
+ 				}
+ 		else if (statement.indexOf("i dead") >= 0){
+ 					response = "stay dead lol";
+ 				}
+ 		else if (statement.indexOf("crying") >= 0){
+ 					response = "keep crying noob";
+ 				}
+ 		else if (statement.indexOf("joe") >= 0|| statement.indexOf("mama") >= 0) {
+ 					response = "who dat";
+ 				}
+ 		else if (statement.indexOf("mother") >= 0
+ 				|| statement.indexOf("father") >= 0
+ 				|| statement.indexOf("sister") >= 0
+ 				|| statement.indexOf("brother") >= 0)
+ 		{
+ 			response = "Tell me more about your family.";
+ 		}
+
+ 		else
+ 		{
+ 			response = getRandomResponse();
+ 		}
+ 		return response;
+ 	}
 
 	/**
 	 * Search for one word in phrase. The search is not case
@@ -122,7 +133,7 @@ public class Magpie3
 	 * is not a substring of a longer string (so, for
 	 * example, "I know" does not contain "no"). The search
 	 * begins at the beginning of the string.
-	 * 
+	 *
 	 * @param statement
 	 *            the string to search
 	 * @param goal
@@ -137,7 +148,7 @@ public class Magpie3
 
 	/**
 	 * Pick a default response to use if nothing else fits.
-	 * 
+	 *
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse()
