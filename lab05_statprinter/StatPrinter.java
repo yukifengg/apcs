@@ -130,7 +130,6 @@ public class StatPrinter
   {
     /* YOUR IMPLEMENTATION HERE */
     ArrayList <Integer> modeList = new ArrayList<Integer>();
-    // _frequency = 
     for (int i = 0; i < _frequency.size(); i++) {
       if (isLocalMode(i)) {
         modeList.add(i);
@@ -142,9 +141,10 @@ public class StatPrinter
 
   // //*************** QUESTION 05 **************************
   // //precond:  longestBar > 0
-  // public void printHistogram( int longestBar )
-  // {
-  //   /* YOUR IMPLEMENTATION HERE */
-  // }
+  public void printHistogram( int longestBar )
+  {
+    /* YOUR IMPLEMENTATION HERE */
+    for ()
+  }
 
 }//end class StatPrinter
