@@ -36,11 +36,12 @@ public class StatPrinterApp
     al1.add(4);
     al1.add(4);
 
+    System.out.println(al1);
     StatPrinter sp1 = new StatPrinter( al1 );
 
     System.out.println( "sp1 testing... " );
     sp1.max( al1 );
-    // sp1.printHistogram( 50 );
+    sp1.printHistogram( 50 );
     // System.out.println( "local modes: " );
     // for( Integer i : al1 ) {
     //   System.out.println( i + " is local mode?\t" + sp1.isLocalMode(i) );

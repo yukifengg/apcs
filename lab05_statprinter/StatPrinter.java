@@ -69,7 +69,7 @@ public class StatPrinter
     /* YOUR IMPLEMENTATION HERE */
     _frequency = new ArrayList<Integer> ();
     int freqq = 0;
-    while (freqq < data.size()) {
+    while (freqq < max(data) + 1) {
       _frequency.add(0);
       freqq++;
     }
@@ -144,7 +144,10 @@ public class StatPrinter
   public void printHistogram( int longestBar )
   {
     /* YOUR IMPLEMENTATION HERE */
-    for ()
+    for (int i = 0; i < _frequency.size(); i++) {
+      String stars = new String(new char[_frequency.get(i)]).replace("\0", "*");
+      System.out.println(i + " : " + stars);
+    }
   }
 
 }//end class StatPrinter
