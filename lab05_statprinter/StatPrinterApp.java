@@ -47,22 +47,22 @@ public class StatPrinterApp
 
     // //construct data [2,3,2,5,2,3]
     // //   _frequency should be [0,0,3,2,0,1]
-    // ArrayList<Integer> al2 = new ArrayList<Integer>();
-    // al2.add(2);
-    // al2.add(3);
-    // al2.add(2);
-    // al2.add(5);
-    // al2.add(2);
-    // al2.add(3);
-    //
-    // StatPrinter sp2 = new StatPrinter( al2 );
-    //
-    // System.out.println( "sp2 testing: " );
-    // System.out.println( "al2 max: " + sp1.max(al2) );
-    // System.out.println( "local modes: " );
-    // for( Integer i : al2 ) {
-    // System.out.println( i + " is local mode?\t" + sp2.isLocalMode(i) );
-    // }
+    ArrayList<Integer> al2 = new ArrayList<Integer>();
+    al2.add(2);
+    al2.add(3);
+    al2.add(2);
+    al2.add(5);
+    al2.add(2);
+    al2.add(3);
+
+    StatPrinter sp2 = new StatPrinter( al2 );
+    System.out.println(al2. getLocalModes());
+    System.out.println( "sp2 testing: " );
+    System.out.println( "al2 max: " + sp1.max(al2) );
+    System.out.println( "local modes: " );
+    for( Integer i : al2 ) {
+    System.out.println( i + " is local mode?\t" + sp2.isLocalMode(i) );
+    }
     // System.out.println( "histogram:" );
     // sp2.printHistogram( 50 );
   }

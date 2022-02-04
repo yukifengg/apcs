@@ -67,10 +67,18 @@ public class StatPrinter
   public StatPrinter( ArrayList <Integer> data )
   {
     /* YOUR IMPLEMENTATION HERE */
+    _frequency = new ArrayList<Integer> ();
+    int freqq = 0;
+    while (freqq < data.size()) {
+      _frequency.add(0);
+      freqq++;
+    }
     for (int i = 0; i < data.size(); i++) {
       int j = data.get(i);
-      _frequency.set(j,(_frequency.get(j) + 1));
+      int newj = _frequency.get(j) +1;
+      _frequency.set(j,newj);
     }
+    System.out.println(_frequency);
   }
 
 
@@ -90,31 +98,48 @@ public class StatPrinter
   }
 
 
-  // //*************** QUESTION 03 **************************
-  // //postcond: returns true if i > 0 and i < _frequency.size() - 1
-  // //          and _frequency.get( i - 1 ) < _frequency.get( i )
-  // //          and _frequency.get( i + 1 ) < _frequency.get( i )
-  // //          Otherwise, returns false
-  // //eg, for _frequency [1,2,1,5,5,8,2,4]
-  // //    2 and 8 are local modes, so
-  // //    isLocalMode(0) -> false
-  // //    isLocalMode(1) -> true
-  // //    isLocalMode(5) -> true
-  // public boolean isLocalMode( int i )
-  // {
-  //   /* YOUR IMPLEMENTATION HERE */
-  // }
-  //
-  //
+  //*************** QUESTION 03 **************************
+  //postcond: returns true if i > 0 and i < _frequency.size() - 1
+  //          and _frequency.get( i - 1 ) < _frequency.get( i )
+  //          and _frequency.get( i + 1 ) < _frequency.get( i )
+  //          Otherwise, returns false
+  //eg, for _frequency [1,2,1,5,5,8,2,4]
+  //    2 and 8 are local modes, so
+  //    isLocalMode(0) -> false
+  //    isLocalMode(1) -> true
+  //    isLocalMode(5) -> true
+  public boolean isLocalMode( int i )
+  {
+    /* YOUR IMPLEMENTATION HERE */
+    if (
+    ((i > 0) && (i < _frequency.size() - 1))
+    && (_frequency.get( i - 1 ) < _frequency.get( i ))
+    && (_frequency.get( i + 1 ) < _frequency.get( i ))
+    ) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+
   // //*************** QUESTION 04 **************************
   // //postcond: returns list of modes in _frequency
-  // public ArrayList<Integer> getLocalModes()
-  // {
-  //   /* YOUR IMPLEMENTATION HERE */
-  //
-  // }
-  //
-  //
+  public ArrayList<Integer> getLocalModes()
+  {
+    /* YOUR IMPLEMENTATION HERE */
+    ArrayList <Integer> modeList = new ArrayList<Integer>();
+    // _frequency = 
+    for (int i = 0; i < _frequency.size(); i++) {
+      if (isLocalMode(i)) {
+        modeList.add(i);
+      }
+    }
+    return modeList;
+  }
+
+
   // //*************** QUESTION 05 **************************
   // //precond:  longestBar > 0
   // public void printHistogram( int longestBar )
