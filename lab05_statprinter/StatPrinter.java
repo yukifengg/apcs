@@ -78,7 +78,7 @@ public class StatPrinter
       int newj = _frequency.get(j) +1;
       _frequency.set(j,newj);
     }
-    System.out.println(_frequency);
+    // System.out.println(_frequency);
   }
 
 
@@ -144,8 +144,13 @@ public class StatPrinter
   public void printHistogram( int longestBar )
   {
     /* YOUR IMPLEMENTATION HERE */
+    int prop = longestBar / max(_frequency);
     for (int i = 0; i < _frequency.size(); i++) {
-      String stars = new String(new char[_frequency.get(i)]).replace("\0", "*");
+      String stars = "";
+      char star = '*';
+      for (int j = 0; j < (_frequency.get(i) * prop); j++) {
+        stars += star;
+      }
       System.out.println(i + " : " + stars);
     }
   }
