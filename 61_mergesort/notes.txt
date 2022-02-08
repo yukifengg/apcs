@@ -1,0 +1,28 @@
+Kick-Ass Girls :: Blossom, Bubbles, Buttercup
+APCS pd8
+HW60 -- simple unit instructions -> powerful emergent behavior
+2022-02-07m
+time spent:  hrs
+
+
+DISCO
+------------------------------------------------
+*
+================================================
+
+
+QCC
+------------------------------------------------
+*
+================================================
+
+
+THINKER FIRMWARE
+------------------------------------------------
+*
+================================================
+
+
+useful links copied from assignments page:
+https://ccl.northwestern.edu/netlogo/models/Termites
+https://www.lifewire.com/what-is-firmware-2625881
