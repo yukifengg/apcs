@@ -1,0 +1,11 @@
+Team stingRAY
+(Rin Fukuoka/Tape, Abdullah Faruque/Joemama, Yuki Feng/Benjamin and Mister Boba)
+APCS pd8
+Time: 0.1 hrs
+
+- Thinkers are like turtles and do only what they r told to do and do not think for themselves
+- If you have 2 decks, return them to the og deck owners
+- If you have 2 cards, give those away
+- Never sort yourself, keep on giving it away
+- Actually thinking would mean O(n^2) computational sorting and we want to avoid that
+- If hands full with one card, do not take card from another thinker
