@@ -3,9 +3,24 @@ Team stingRAY
 APCS pd8
 Time: 0.1 hrs
 
+-----------------------------------------------------
+
+DISCO:
 - Thinkers are like turtles and do only what they r told to do and do not think for themselves
+- Actually thinking would mean O(n^2) computational sorting and we want to avoid that
+- If hands full with one card, do not take card from another thinker
+
+-----------------------------------------------------
+
+QCC:
+- How does the sorting actually work? Even if each turtle has one, where do comparisons begin
+
+-----------------------------------------------------
+
+THINKER FIRMWARE:
 - If you have 2 decks, return them to the og deck owners
 - If you have 2 cards, give those away
 - Never sort yourself, keep on giving it away
-- Actually thinking would mean O(n^2) computational sorting and we want to avoid that
 - If hands full with one card, do not take card from another thinker
+
+-----------------------------------------------------
