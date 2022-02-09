@@ -17,19 +17,15 @@ public class MergeSort
    ******************************************************/
   private static int[] merge( int[] a, int[] b )
   {
+    //create output array
     int size = a.length + b.length;
-    int[] output = new int[](size);
-
-    // for (int i = 0; i < size; i++) {
-    //   if (a[i] < b[i]) {
-    //     output[i] = a[i];
-    //   } else {
-    //
-    //   }
+    int[] output = new int[size];
+    //index
     int indexa = 0;
     int indexb = 0;
     int indexo = 0;
-    while (indexa < a.length || indexb < b.length)
+
+    while (indexa < a.length && indexb < b.length)
    {
      if (a[indexa] > b[indexb]) {
        output[indexo] = b[indexb];
@@ -41,9 +37,17 @@ public class MergeSort
      indexo += 1;
    }
 
+   if (indexa == a.length){
+     for (int i = indexb; i < b.length; i++) {
+       output[i+indexa] = b[i];
+     }
+   } else {
+     for (int i = indexa; i < a.length; i++) {
+       output[i+indexb] = a[i];
+     }
+   }
 
-    }
-
+   return output;
   }//end merge()
 
 
@@ -54,7 +58,22 @@ public class MergeSort
    ******************************************************/
   public static int[] sort( int[] arr )
   {
+      //base case
+    if (arr.length == 1) {
+      return arr;
+    }
+    //recursive case
+    int middle = arr.length / 2;
+    int[] firstHalf = new int[middle];
+    int[] secondHalf = new int[arr.length - middle];
 
+    for (int i = 0; i < middle; i++) {
+      firstHalf[i] = arr[i];
+    }
+    for (int i = 0; i < arr.length - middle; i++)
+      secondHalf[i] = arr[i+middle];
+
+    return (merge(sort(firstHalf), sort(secondHalf)));
   }//end sort()
 
 
@@ -78,9 +97,10 @@ public class MergeSort
 
 
   //main method for testing
+  //main method for testing
   public static void main( String [] args )
   {
-    /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
+
       int[] arr0 = {0};
       int[] arr1 = {1};
       int[] arr2 = {1,2};
@@ -98,6 +118,7 @@ public class MergeSort
       System.out.println("\nMerging arr1 and arr0: ");
       printArray( merge(arr1,arr0) );
 
+
       System.out.println("\nMerging arr4 and arr6: ");
       printArray( merge(arr4,arr6) );
 
@@ -106,6 +127,7 @@ public class MergeSort
       printArray( sort( arr5 ) );
       printArray( sort( arr6 ) );
       printArray( sort( arr7 ) );
+      /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
