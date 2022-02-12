@@ -1,0 +1,58 @@
+TNPG stingRAY: Rin Fukuoka, Abdullah Faruque, Yuki Feng
+APCS pd08
+Lab06
+02-10-22
+---------------------------------------------------------------------------
+DISCO:
+
+---------------------------------------------------------------------------
+QCC:
+
+---------------------------------------------------------------------------
+LAB ANSWERS:
+
+- ACTIVITY 1 -
+1.
+  a) public static double sentimentVal( String word )
+  b) Yes, a String, you get error if diff param passed.
+  c) return double
+2.
+  method call || return value
+  sentimentVal("nice"); || 2.09
+  sentimentVal("rude"); || -0.42
+  sentimentVal("great"); || 1.48
+3.
+  a) yes because sentimentVal intakes String "warm" and returns double that will
+  then be used as value for num
+  b) no bc sentimentVal only returns doubles
+  c) no bc sentimentVal only takes 1 param
+
+- ACTIVITY 2 -
+4.
+  it works by iterating through the String with a for loop and checking if the
+  adjective has sentimental value. we add up the sentimental values we find.
+5.
+  a) the star ratings make sense bc more sentiment means a better review which
+  the stars account for. SimpleReview is a negative review w low totalSentiment
+  so it returns 1 star whereas OrangeReview is positive w high totalSentiment so
+  it returns more stars.
+  b) compare the pos adj to words near it to see if it is actually correct
+  sentiment and compare amt pos to neg to see if review was majority neg or pos
+6.
+ a) did not account for totalSentiment values >= 15 bc it does not make sense to
+ have more sentiment yet lower stars
+ b) have an else if statement testing for (totalSentiment >=15) which will return
+ 5 stars and then else will return 0 stars.
+
+- ACTIVITY 3 -
+3.
+  indexOf finds the index of a character you specify and then substring cuts a
+  String from that index i until the end of the String or a specified index after
+  i. It is necessary to add 1 bc String indices start at 0.
+5.
+  static cannot be overriden like non static methods and it belongs to the class,
+  not an object in the class.
+6.
+  instead of randomAdjective, use randomNegativeAdj or randomPositiveAdj
+
+- ACTIVITY 4 -
