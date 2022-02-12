@@ -9,14 +9,14 @@ import java.io.*;
  * Class that contains helper methods for the Review Lab
  **/
 public class Review {
-  
+
   private static HashMap<String, Double> sentiment = new HashMap<String, Double>();
   private static ArrayList<String> posAdjectives = new ArrayList<String>();
   private static ArrayList<String> negAdjectives = new ArrayList<String>();
- 
-  
+
+
   private static final String SPACE = " ";
-  
+
   static{
     try {
       Scanner input = new Scanner(new File("cleanSentiment.csv"));
@@ -24,14 +24,20 @@ public class Review {
         String[] temp = input.nextLine().split(",");
         sentiment.put(temp[0],Double.parseDouble(temp[1]));
         //System.out.println("added "+ temp[0]+", "+temp[1]);
+        if (Double.parseDouble(temp[1]) < 0) {
+          posAdjectives.add(temp[0]);
+        }
+        else {
+          negAdjectives.add(temp[0]);
+        }
       }
       input.close();
     }
     catch(Exception e){
       System.out.println("Error reading or parsing cleanSentiment.csv");
     }
-  
-  
+
+
   //read in the positive adjectives in postiveAdjectives.txt
      try {
       Scanner input = new Scanner(new File("positiveAdjectives.txt"));
@@ -44,8 +50,8 @@ public class Review {
     }
     catch(Exception e){
       System.out.println("Error reading or parsing postitiveAdjectives.txt\n" + e);
-    }   
- 
+    }
+
   //read in the negative adjectives in negativeAdjectives.txt
      try {
       Scanner input = new Scanner(new File("negativeAdjectives.txt"));
@@ -56,25 +62,25 @@ public class Review {
     }
     catch(Exception e){
       System.out.println("Error reading or parsing negativeAdjectives.txt");
-    }   
+    }
   }
-  
-  /** 
-   * returns a string containing all of the text in fileName (including punctuation), 
-   * with words separated by a single space 
+
+  /**
+   * returns a string containing all of the text in fileName (including punctuation),
+   * with words separated by a single space
    */
   public static String textToString( String fileName )
-  {  
+  {
     String temp = "";
     try {
       Scanner input = new Scanner(new File(fileName));
-      
+
       //add 'words' in the file to the string, separated by a single space
       while(input.hasNext()){
         temp = temp + input.next() + " ";
       }
       input.close();
-      
+
     }
     catch(Exception e){
       System.out.println("Unable to locate " + fileName);
@@ -82,9 +88,9 @@ public class Review {
     //make sure to remove any additional space that may have been added at the end of the string.
     return temp.trim();
   }
-  
+
   /**
-   * @returns the sentiment value of word as a number between -1 (very negative) to 1 (very positive sentiment) 
+   * @returns the sentiment value of word as a number between -1 (very negative) to 1 (very positive sentiment)
    */
   public static double sentimentVal( String word )
   {
@@ -97,12 +103,12 @@ public class Review {
       return 0;
     }
   }
-  
+
   /**
-   * Returns the ending punctuation of a string, or the empty string if there is none 
+   * Returns the ending punctuation of a string, or the empty string if there is none
    */
   public static String getPunctuation( String word )
-  { 
+  {
     String punc = "";
     for(int i=word.length()-1; i >= 0; i--){
       if(!Character.isLetterOrDigit(word.charAt(i))){
@@ -113,7 +119,7 @@ public class Review {
     }
     return punc;
   }
-  
+
     /**
    * Returns the word after removing any beginning or ending punctuation
    */
@@ -127,11 +133,11 @@ public class Review {
     {
       word = word.substring(0, word.length()-1);
     }
-    
+
     return word;
   }
-  
-  /** 
+
+  /**
    * Randomly picks a positive adjective from the positiveAdjectives.txt file and returns it.
    */
   public static String randomPositiveAdj()
@@ -139,18 +145,18 @@ public class Review {
     int index = (int)(Math.random() * posAdjectives.size());
     return posAdjectives.get(index);
   }
-  
-  /** 
+
+  /**
    * Randomly picks a negative adjective from the negativeAdjectives.txt file and returns it.
    */
   public static String randomNegativeAdj()
   {
     int index = (int)(Math.random() * negAdjectives.size());
     return negAdjectives.get(index);
-    
+
   }
-  
-  /** 
+
+  /**
    * Randomly picks a positive or negative adjective and returns it.
    */
   public static String randomAdjective()
@@ -162,4 +168,69 @@ public class Review {
       return randomNegativeAdj();
     }
   }
-}
+
+  public static double totalSentiment(String fileName) {
+    String reviewFile = textToString(fileName);
+    String word = "";
+    int startI = 0;
+    double total = 0;
+    String lastWord;
+    for (int endI = 0; endI < reviewFile.length(); endI++) {
+      if (reviewFile.substring(endI, endI+1).equals(" ")) {
+        word = reviewFile.substring(startI, endI);
+        word = removePunctuation(word);
+        //System.out.println(word.trim());
+        total += sentimentVal(word.trim());
+        startI = endI;
+      }
+     }
+     lastWord = reviewFile.substring(startI+1, reviewFile.length());
+     word = removePunctuation(word);
+     total += sentimentVal(lastWord.trim());
+
+     return total;
+    }
+
+  public static int starRating(String fileName) {
+    double raw = totalSentiment(fileName);
+    int star;
+    if (raw < 0) {
+      star = 1;
+    } else if (raw < 5) {
+      star = 2;
+    } else if (raw < 10) {
+      star = 3;
+    } else if (raw < 15) {
+      star = 4;
+    } else {
+      star = 5;
+    }
+    return star;
+  }
+
+  public static String fakeReview(String fileName)
+  {
+    String real = textToString(fileName);
+    String[] realArr = real.split(" ");
+    String newAdj = "";
+    String newReview = "";
+    for (int i = 0; i < realArr.length; i++) {
+      if (realArr[i].substring(0,1).equals("*")) {
+        newAdj = randomAdjective();
+        realArr[i] = newAdj;
+      }
+      newReview += realArr[i] + " ";
+    }
+    return newReview;
+  }
+
+  //end main
+  public static void main(String[] args) {
+    // System.out.println( totalSentiment("SimpleReview.txt"));
+    // System.out.println( starRating("SimpleReview.txt"));
+    // System.out.println( totalSentiment("OrangeReview.txt"));
+    // System.out.println( starRating("OrangeReview.txt"));
+    System.out.println( fakeReview("SimpleReview.txt"));
+  }//end main
+
+}//end of class
