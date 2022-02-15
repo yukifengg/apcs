@@ -3,7 +3,7 @@ APCS pd08
 Lab06
 02-10-22
 ---------------------------------------------------------------------------
-DISCO:
+DISCO: this lab has a lot of reading!
 
 ---------------------------------------------------------------------------
 QCC:
@@ -56,3 +56,52 @@ LAB ANSWERS:
   instead of randomAdjective, use randomNegativeAdj or randomPositiveAdj
 
 - ACTIVITY 4 -
+1.
+ to make an establishment look bad by gutting it with bad reviews.
+2.
+ to make your establishment look amazing with fake good reviews.
+3.
+ a stronger review will have stronger adjectives. In order to do this, the method
+ must determine whether or not the adjective is good or bad. It then will keep doing
+ randomAdjective till we get an adjective that is "stronger", higher sentimentVal if positive,
+ lower if negative.
+5.
+oneword has the value of everything but the first letter now.
+6. because in order to find the sentiment value, you need to scan the word. However, it won't
+give you the right sentimentVal if there's an *, since the csv list does not account for it.
+7.
+replacing the adjective with stronger ones.
+
+- ACTIVITY 5 -
+1. I chose to make this method since it seems interesting, and slightly related to the stuff
+we did for the lab ( moving words in sentences).
+2. I planned it on a KTS, discussed with my trio, and began coding. I consulted with my group for parts
+I was unsure of.
+3. public boolean hasVowel(String doomah){
+   This method returns a true or false statement. It is useful to determine if a word starts with a vowel,
+   which is important for the method that does the real thing. The method is not static since all the methods
+   are in the same file.
+4. String[] mama = joe.split(" ");
+   for (int i = 0; i < vowels.length(); i++){
+   the .split method splits the string for every space. "joe mama" gives you an array of ["joe", "mama"].
+   the .length method simply returns the length of the string.
+5. if (hasVowel(mama[i])){
+                withVowel +=" " + mama[i];
+            } else {
+                withoutVowel += " " + mama[i];
+            }
+        }
+        this whole segment checks if the string word inside of mama, which has the words in the sentence, if it
+        starts with a vowel. This can be done in another way by not using the helper method made, and basically asking
+        manually, but that would be ineffecient.
+6. for (int i = 0; i < vowels.length(); i++){
+   this iteration iterates through String vowels = "AEIOUaeiou". The purpose of this is to check if the first letter of the input word
+   is a vowel. another equivalent would be :
+
+   int i = 0;
+    while (i < vowels.length()) {
+       if(vowels.charAt(i)==doomah.charAt(0)){
+                return true;
+            }
+        }
+    }
