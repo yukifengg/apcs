@@ -1,3 +1,9 @@
+//Team stingRAY (Rin Furuoka, Abdullah Faruque, Yuki Feng)
+//APCS pd8
+//HW65: How Many Queens Can a Thinker Place, If a Thinker Can Place Queens...
+//2022-02-16
+//time spent: 2 hrs
+
 /***
  * class QueenBoard
  * Generates solutions for N-Queens problem.
@@ -25,28 +31,39 @@ public class QueenBoard
    * If no solution, board is filled with 0's,
    * returns false.
    */
-  public boolean solve()
-  {
-    return false;
+  public boolean solve() {
+    return solveH(0);
   }
 
 
   /**
    *Helper method for solve.
    */
-  private boolean solveH( int col )
-  {
-    return false;
+  private boolean solveH( int col ) {
+    if ( col == _board[0].length) {
+       return true; // you have reached the end of the board, so that msut mean that this size does have a solution. 
+      } else {
+      for (int i = 0; i < _board.length; i++) {
+        if (addQueen(i, col)) {
+          if (solveH(col+1)) { 
+            return true; //check if you can place more queens in the next column
+          } else { 
+            removeQueen(i, col); 
+          }// remove the queen jsut placed as it does not allow for more queens to be placed
+        }
+      }
+      return false;// allows to backtrack to first queen and change its position which may open up more possibilities for a solution.
+    }
   }
-
-
+ 
   public void printSolution()
   {
-    /** Print board, a la toString...
+       /** Print board, a la toString...
         Except:
         all negs and 0's replaced with underscore
         all 1's replaced with 'Q'
     */
+    solve();
     for (int i = 0; i < _board.length; i++) {
       for (int c = 0; c < _board[i].length; c++) {
         if (_board[i][c] <= 0 ) {
@@ -166,6 +183,15 @@ public class QueenBoard
        0	0	0	0	-1
        0	0	0	0	0
     */
-  }
+    b.printSolution(); // print solution works
+    // displays 
+    //_Q___
+    //_____
+    //_____
+    //_____
+    //_____
 
+    QueenBoard nine = new QueenBoard(9);
+    nine.printSolution();
 }//end class
+}
