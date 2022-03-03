@@ -1,0 +1,46 @@
+Team Frog Hats - Kevin Cheng, Yuki Feng
+APCS PD8
+HW 69: Making Sense
+2022-03-02
+Time Spent: .5 hrs
+ 
+ Mean execution times for boards of size n*n:
+ * n=5   0.232s    across 5 executions
+ * n=6   3.801s    across 5 executions
+ * n=7   Didn't run in time
+ * n=8   Didn't run in time
+
+Q0:     There is no guarantee that an open loop can be found because there might be a
+	specific pattern of squares that creates a solution that can't be an open loop.
+	For example, the pattern of 3x3 squares without its center. No matter which
+	square you start with, the last move can always lead back to the first move.
+
+Q1:     A closed tour can always be found because a closed tour can be looped, since the
+	last move can move to the first move. This means that any position on the board
+	can be the "first move" and the knight can follow a previously found closed tour
+	to tour the entire board.
+
+Q2:     As the side length of the board increases, the amount of moves that must be made
+	increases by a factor of the side length of the board. Furthermore, because most
+	positions has multiple moves that can be made from that starting position,
+	every move multiples the possible states of the board by some number, exponentially
+	increasing the number of computations that must be made.
+
+Q3:     There could be a check for the algorithm to avoid obvious traps for the knight.
+	For example, if one of the squares that can lead into a corner has been taken, and
+	the knight is on the other square that leads into the corner, and there are still
+	squares the knight hasn't landed on yet, then the algorithm immediately skips
+	testing all of the moves and backtracks from there.
+
+2) ALGO:
+Hug the left wall:
+- 	Start by walking straight into the path based on what direction you are "facing".
+	The algorithm starts by facing the "up" direction.
+-	When you can, take the left entrance into a different corridor of the maze. Change
+	the direction counterclockwise whenever you make a left turn.
+-	If you reach an end where you can only make a right turn and can't walk forward,
+	make the right turn by changing the direction counterclockwise three times.
+-	If you reach a dead end where you can't make any turns or walk straight forward,
+	turn around by changing the direction counterclockwise two times.
+-	Stop at the end of the maze.
+
