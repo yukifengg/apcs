@@ -1,6 +1,6 @@
-// Clyde Sinclair
-// APCS pd0
-// HW69 -- maze solving (blind, depth-first)
+// Frog hats: Kevin Cheng, Yuki Feng, Joshua Gao
+// APCS pd8
+// HW70: Thinkers of the Corn
 // 2022-03-03r
 // time spent:  hrs
 
@@ -130,28 +130,53 @@ class MazeSolver
     delay( FRAME_DELAY ); //slow it down enough to be followable
 
     //primary base case
-    if ( ??? ) {
-	???
+    if ( _maze[x][y] == EXIT  ) {
+      _solved = true;
+      System.exit(0);
     }
     //other base cases
-    else if ( ??? ) {
-	???
+    else if ( _maze[x][y] == WALL || _maze[x][y] == VISITED_PATH ) {
       return;
     }
     //otherwise, recursively solve maze from next pos over,
     //after marking current location
     else {
-	???
+      int currentX = x;
+      int currentY = y;
+      while (x > 0) {
+        _maze[currentX][currentY] = VISITED_PATH;
+        currentX--;
+        _maze[x-1][y] = HERO;
+        x--;
+        if (x == 0) {
+          _maze[currentX][currentY] = VISITED_PATH;
+          currentY--;
+          _maze[x][y-1] = HERO;
+          y--;
+        }
+      }
       System.out.println( this ); //refresh screen
-
-???
+      solve(x,y);
+      while (y > 0) {
+        _maze[currentX][currentY] = VISITED_PATH;
+        _maze[x][y-1] = HERO;
+        currentY--;
+        y--;
+        if (y == 0) {
+          _maze[x-1][y] = HERO;
+          x--;
+          _maze[currentX][currentY] = VISITED_PATH;
+          currentX--;
+        }
+      }
       System.out.println( this ); //refresh screen
+      solve(x,y);
     }
   }
 
   //accessor method to help with randomized drop-in location
   public boolean onPath( int x, int y) {
-
+    return (_maze[x][y] == PATH);
   }
 
 }//end class MazeSolver
@@ -186,6 +211,8 @@ public class Maze
 
     //drop our hero into maze at random location on path
     // YOUR RANDOM-POSITION-GENERATOR CODE HERE
+    // int startX = 2 + (int) (Math.random());
+    // int startY = 2 + (int) (Math.random());
     //ms.solve( startX, startY );
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
