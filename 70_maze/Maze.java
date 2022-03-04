@@ -42,7 +42,7 @@ class MazeSolver
   final private char WALL =           ' ';
   final private char EXIT =           '$';
   final private char VISITED_PATH =   '.';
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~System~
 
   public MazeSolver( String inputFile )
   {
@@ -73,7 +73,6 @@ class MazeSolver
         h++;
         row++;
       }
-
       for( int i=0; i<w; i++ )
         _maze[i][row] = WALL;
       h++;
@@ -127,12 +126,13 @@ class MazeSolver
    **/
   public void solve( int x, int y )
   {
-    delay( FRAME_DELAY ); //slow it down enough to be followable
+    delay( 200 ); //slow it down enough to be followable
 
     //primary base case
     if ( _maze[x][y] == EXIT  ) {
       _solved = true;
-      System.exit(0);
+      System.out.println("solution");
+      // System.exit(0);
     }
     //other base cases
     else if ( _maze[x][y] == WALL || _maze[x][y] == VISITED_PATH ) {
@@ -144,33 +144,33 @@ class MazeSolver
       int currentX = x;
       int currentY = y;
       while (x > 0) {
-        _maze[currentX][currentY] = VISITED_PATH;
-        currentX--;
-        _maze[x-1][y] = HERO;
-        x--;
-        if (x == 0) {
-          _maze[currentX][currentY] = VISITED_PATH;
-          currentY--;
-          _maze[x][y-1] = HERO;
-          y--;
-        }
-      }
-      System.out.println( this ); //refresh screen
-      solve(x,y);
-      while (y > 0) {
-        _maze[currentX][currentY] = VISITED_PATH;
-        _maze[x][y-1] = HERO;
-        currentY--;
+        // _maze[currentX][currentY] = VISITED_PATH;
+        // currentX--;
+        _maze[x-1][y] = HERO; //placing hero to left
         y--;
-        if (y == 0) {
-          _maze[x-1][y] = HERO;
-          x--;
-          _maze[currentX][currentY] = VISITED_PATH;
-          currentX--;
+        if (x>0) {
+          // _maze[currentX][currentY] = VISITED_PATH;
+          // currentY--;
+          _maze[x][y-1] = HERO; //placing hero up
+          x--; //update y pos
         }
+        solve(x,y);
       }
       System.out.println( this ); //refresh screen
-      solve(x,y);
+      // while (y > 0) {
+      //   _maze[currentX][currentY] = VISITED_PATH;
+      //   _maze[x][y-1] = HERO;
+      //   currentY--;
+      //   y--;
+      //   if (y == 0) {
+      //     _maze[x-1][y] = HERO;
+      //     x--;
+      //     _maze[currentX][currentY] = VISITED_PATH;
+      //     currentX--;
+      //   }
+      // }
+      // System.out.println( this ); //refresh screen
+      // solve(x,y);
     }
   }
 
@@ -211,8 +211,8 @@ public class Maze
 
     //drop our hero into maze at random location on path
     // YOUR RANDOM-POSITION-GENERATOR CODE HERE
-    // int startX = 2 + (int) (Math.random());
-    // int startY = 2 + (int) (Math.random());
+    // int startX = (int) (Math.random());
+    // int startY = (int) (Math.random());
     //ms.solve( startX, startY );
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
