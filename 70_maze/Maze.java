@@ -127,6 +127,7 @@ class MazeSolver
   public void solve( int x, int y )
   {
     delay( FRAME_DELAY ); //slow it down enough to be followable
+    // delay( 500 ); //slow it down enough to be followable
 
     //primary base case
     if ( _maze[x][y] == EXIT  ) {
@@ -135,24 +136,40 @@ class MazeSolver
       // System.exit(0);
     }
     //other base cases
-    else if ( _maze[x][y] == WALL || _maze[x][y] == VISITED_PATH ) {
-      // ???
+    else if ( _maze[x][y] == WALL || _maze[x][y] == VISITED_PATH) {
+      _solved = false;
       return;
     }
     //otherwise, recursively solve maze from next pos over,
     //after marking current location
     else {
-      int currentX = x;
-      int currentY = y;
-      _maze[currentX][currentY] = HERO;
-      while (_maze[x-1][y] != WALL || _maze[x-1][y] != VISITED_PATH) {
-        x -= 1;
-        y -= 1;
-        solve(x,y);
+      //going west
+      while ( _maze[x][y] == PATH ) {
+        _maze[x][y] = HERO;
+        System.out.println( this ); //refresh screen
+        solve(x-1,y);
+        _maze[x+1][y] = HERO;
+        System.out.println( this ); //refresh screen
+        solve(x+1,y);
+        _maze[x][y+1] = HERO;
+        // _maze[x][y] = VISITED_PATH;
+        System.out.println( this ); //refresh screen
+        solve(x,y+1);
+        _maze[x][y-1] = HERO;
+        // _maze[x][y] = VISITED_PATH;
+        System.out.println( this ); //refresh screen
+        solve(x,y-1);
       }
-      System.out.println( this ); //refresh screen
-      // ???
-      // System.out.println( this ); //refresh screen
+      // EAST while (_maze[x+1][y] == PATH && _maze[x+1][y] != VISITED_PATH) {
+      // }
+
+      // //going south
+      // SOUTH if (_maze[x][y+1] == PATH && _maze[x][y+1] != VISITED_PATH) {
+      // }
+
+      // //going north
+      // NORTH if (_maze[x][y-1] == PATH && _maze[x][y-1] != VISITED_PATH) {
+      // }
     }
   }
 
