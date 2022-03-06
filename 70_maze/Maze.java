@@ -124,54 +124,41 @@ class MazeSolver
    * @param x starting x-coord, measured from left
    * @param y starting y-coord, measured from top
    **/
-  public void solve( int x, int y )
-  {
-    delay( FRAME_DELAY ); //slow it down enough to be followable
-    // delay( 500 ); //slow it down enough to be followable
+   public void solve( int x, int y )
+   {
+     delay( FRAME_DELAY ); //slow it down enough to be followable
 
-    //primary base case
-    if ( _maze[x][y] == EXIT  ) {
-      _solved = true;
-      System.out.println("solution found");
-      // System.exit(0);
-    }
-    //other base cases
-    else if ( _maze[x][y] == WALL || _maze[x][y] == VISITED_PATH) {
-      _solved = false;
-      return;
-    }
-    //otherwise, recursively solve maze from next pos over,
-    //after marking current location
-    else {
-      //going west
-      while ( _maze[x][y] == PATH ) {
-        _maze[x][y] = HERO;
-        System.out.println( this ); //refresh screen
-        solve(x-1,y);
-        _maze[x+1][y] = HERO;
-        System.out.println( this ); //refresh screen
-        solve(x+1,y);
-        _maze[x][y+1] = HERO;
-        // _maze[x][y] = VISITED_PATH;
-        System.out.println( this ); //refresh screen
-        solve(x,y+1);
-        _maze[x][y-1] = HERO;
-        // _maze[x][y] = VISITED_PATH;
-        System.out.println( this ); //refresh screen
-        solve(x,y-1);
-      }
-      // EAST while (_maze[x+1][y] == PATH && _maze[x+1][y] != VISITED_PATH) {
-      // }
-
-      // //going south
-      // SOUTH if (_maze[x][y+1] == PATH && _maze[x][y+1] != VISITED_PATH) {
-      // }
-
-      // //going north
-      // NORTH if (_maze[x][y-1] == PATH && _maze[x][y-1] != VISITED_PATH) {
-      // }
-    }
-  }
+     //primary base case
+     if ( _solved ) {
+       System.out.println("Solution found!");
+       System.exit(0);
+     }
+     //other base cases
+     else if ( _maze[x][y] == EXIT ) {
+       _solved = true;
+ 	     System.out.println( this );
+       return;
+     }
+     //otherwise, recursively solve maze from next pos over,
+     //after marking current location
+     else {
+       if (_maze[x][y] == PATH) {
+         _maze[x][y] = HERO;
+         System.out.println( this ); //refresh screen
+         // go north
+         solve(x,y-1);
+         //go east
+         solve(x+1,y);
+         //go south
+         solve(x, y+1);
+         //go west
+         solve(x-1,y);
+         // sets visited path before refreshing screen
+         _maze[x][y] = VISITED_PATH;
+         System.out.println( this ); //refresh screen
+       }
+     } //end else
+   } //end solve
 
   //accessor method to help with randomized drop-in location
   public boolean onPath( int x, int y) {
@@ -206,13 +193,20 @@ public class Maze
 
     //drop hero into the maze (coords must be on path)
     // ThinkerTODO: comment next line out when ready to randomize startpos
-    ms.solve( 4, 3 );
+    // ms.solve( 4, 3 );
 
     //drop our hero into maze at random location on path
     // YOUR RANDOM-POSITION-GENERATOR CODE HERE
-    // int startX = (int) (Math.random());
-    // int startY = (int) (Math.random());
-    //ms.solve( startX, startY );
+    int i = 0;
+    while ( i < 80*25 ) {
+      int startX = (int) (Math.random() * 80);
+      int startY = (int) (Math.random() * 25);
+      if (ms.onPath(startX, startY)) {
+        ms.solve( startX, startY );
+        break;
+      }
+      i++;
+    }
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
