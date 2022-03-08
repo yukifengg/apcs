@@ -1,0 +1,9 @@
+TNPG stingRAY: Rin Fukuoka, Abdullah Faruque, Yuki Feng
+APCS pd 08
+HW71: Whut Dis.
+2022-03-07
+time spent: .5 hrs
+- for any n element array, you must need (n-1)/2 of the array to have vals less than the median and the other half with vals more
+- everything less than arr[c] to the left of it
+- everything greater than arr[c] to its right
+- O(n-1) bc u only loop thru n-1 elements bc u choose c to be the middle element
