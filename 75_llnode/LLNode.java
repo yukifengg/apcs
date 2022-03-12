@@ -7,23 +7,25 @@
 public class LLNode
 {
   //instance vars
+  String[] arr = new String[2];
 
   // constructor
   public LLNode( String value, LLNode next )
   {
-
+    arr[0] = value;
+    arr[1] = next;
   }
 
 
   //--------------v  ACCESSORS  v--------------
   public String getCargo()
   {
-
+    return arr[0];
   }
 
   public LLNode getNext()
   {
-
+    return;
   }
   //--------------^  ACCESSORS  ^--------------
 
@@ -80,4 +82,3 @@ public class LLNode
   }//end main
 
 }//end class LLNode
-
