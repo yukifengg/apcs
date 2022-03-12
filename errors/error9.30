@@ -1,5 +1,0 @@
-Greet.java:2: error: <identifier> expected
-	public static void greet(String[]) {
-	                                 ^
-1 error
-error: compilation failed
