@@ -1,0 +1,81 @@
+YUKI FENG APCS
+
+DEBUGGING:
+3 types of errors:
+ - compile-time: indicates something wrong with syntax of program
+	(ex: omit semicolon at end of statement)
+ - run-time: produced if something goes wrong while program is running
+	(ex: infinite recursion causes StackOverflowError)
+ - logic: cause program to do wrong thing
+	(ex: expression may not be evaluated in order you expect)
+
+
+D.1 COMPILE-TIME ERRORS
+ - incremental development is key to start working with a program and adding small bits of code at a time -> helps avoid making errors in first place
+ - if compiler spews error messages, only the first error is truly reliable. Fix one error at a time then recompile. 
+ - if getting weird compiler message that won't go away, read carefully and check which line the error occurred. Error will be prior to location of error message. Tip: check entire program for indentation so you can spot better syntax errors:
+	- all methods definitions should be nested in class definition. All program statements should be within method
+	- check for capitalization
+	- check for semicolons at end of statements
+	- make sure strings have matching quotation marks. Tip: use "" for string and '' for char.
+	- for assignment statements, make sure type on left is same as type on right
+	- invoking value method, do something with result. If with void method, make sure do nothing w result
+	- invoking instance method, make sure you invoke on object w right type. Invoking static method where defined, make sure to specify the class nun.
+	- invoking instance method, can refer to instance variables without mention given object. If tried in static method (w or w/o -this-) you get message like "non-static variable x cannot be referenced from static context."
+ - if all those dont work, you and the compiler might be looking at different code. Check the dev environment. You could be editing wrong copy of the same program.
+ - if above dont work, debug by bisection:
+	- make backup file. 
+		(Ex: Bob.java will have copy Bob.java.old)
+	- delete half of Bob's code. Try to compile.
+		-if it compiles, you know error is in deleted code. Bring back half what u deleted and repeat
+	- if program still doesn't compile, error is in remaining code. Delete 1/2 remaining code and repeat
+	- once you found and fixed error, bring back code you delete, little bit at time
+ - if you did what compiler told you to and the code still doesn't work, don't follow the compiler explicitly. Error messages give u evidence something is wrong but their remedies are unreliable
+
+D.2 RUN-TIME ERRORS
+ - add print statements to program to see
+ - program hanging: program stops and seems to be doing nothing -> means program caught in infinite loop or recursion
+ - if loop issue:
+	- add print statement immediately b4 loop that says "entering the loop" and another immediately after "exiting the loop"
+	- run. If exiting loop is not seen, proceed
+	- add a print statement at the end of the loop that displays the values of the variables in the condition, and the value of the condition.
+	- The last time through the loop, the condition should be false. If the loop keeps going, you will see the values of x and y, and you might figure out why they are not getting updated correctly.
+ - if recursion issue:
+	- infinite recursion will cause the program to run for a while and then produce a StackOverflowError
+	- check 4 base case, should be condition that makes method return without making recursive invocation. If not, rethink algorithm and identify base case
+	- if program not reaching base case, add print statement at beginning of method displaying parameters
+	- run program and lines of output displaying parameters every time method is invoked should be seen. If parameters not moving to base case, fix 
+ - flow of execution: if unsure about flow, add print "entering method foo" b4 each method so u can trace or you can display arguments each method receives
+ - exception: java displays message w name of exception, line where it occurred, and stack trace (which includes method running and method invoked it and method invoked that one blah blah -> examine the place and see what happened
+ 	- NullPointerException: You tried to access an instance variable or invoke a method on an object that is currently null. Remember: when you declare an array variable, its elements are initially null
+	- ArrayIndexOutOfBoundsException: The index you are using to access an array is either negative or greater than array.length - 1. If you can find the site where the problem is, add a print statement immediately before it to display the value of the index and the length of the array.
+	- StackOverflowError: check recursion stuff above
+	- FileNotFoundException: Java didn’t find the file it was looking for.
+	- ArithmeticException: arithmetic expression undoable
+ - overloaded with print statements output? Simplify output or the program. 
+	- To simplify the output, you can remove or comment out print statements that aren’t helping, or combine them, or format the output so it is easier to understand.
+	- To simplify the program, scale down the problem the program is working on.
+
+D.3 LOGIC ERRORS
+ - make a connection between the code and the behavior you get. You need a hypothesis about what the program is actually doing. Ask yourself:
+	- Is there something the program was supposed to do that doesn’t seem to be happening?
+	- Is something happening that shouldn’t? 
+	- Is a section of code producing an unexpected effect?
+ - common logic errors to check for:
+	- integer division rounds toward zero. For fractions, use double. use integers for countable things and floating-point numbers for measurable things.
+	- Floating-point numbers are only approximate, so don’t rely on them to be perfectly accurate. You should probably never use the == operator with doubles. 
+		- Instead of writing if (d == 1.23), do something like if (Math.abs(d - 1.23) < .000001).
+	- When you apply the equality operator (==) to objects, it checks whether they are identical. to check equivalence, use the equals method instead.
+		- By default for user-defined types, equals checks identity. If you want a different notion of equivalence, you have to override it.
+	- Inheritance can lead to subtle logic errors, because you can run inherited code without realizing it
+ - it is often a good idea to break a complex expression into a series of assignments to temporary variables
+ - If you use the println method, the output is displayed immediately, but if you use print (at least in some environments), the output gets stored without being displayed until the next newline. 
+	- If the program terminates without displaying a newline, you may never see the stored output. 
+	- If you suspect that this is happening, change some or all of the print statements to println.
+
+DUCKY USE
+ - sometimes you just don't get it. Take a break, then consult your ducky.
+
+
+
+		
