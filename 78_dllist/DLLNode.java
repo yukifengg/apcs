@@ -71,7 +71,7 @@ public class DLLNode
     //Create a third node after the second
     first.getNext().setNext( new DLLNode( "cow", null ) );
 
-    DLLNode temp = first; 
+    DLLNode temp = first;
     while( temp != null ) {
       System.out.println( temp );
       temp = temp.getNext();

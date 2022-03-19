@@ -43,7 +43,11 @@ public class ListTester
     for( int i=0; i<7; i++ ) {
       int n = (int)( wu.size() * Math.random() );
       String imposter = "@";
+<<<<<<< HEAD
       System.out.println("adding imposter at index " + n + "...");
+=======
+      System.out.println("adding a poser at index " + n + "...");
+>>>>>>> 4f6b1f3dc40fadfcbc683ef4663648020391beb4
       wu.add( n, imposter );
       System.out.println("Updated list: " + wu);
     }
@@ -58,4 +62,8 @@ public class ListTester
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
+<<<<<<< HEAD
 }//end class
+=======
+}//end class
+>>>>>>> 4f6b1f3dc40fadfcbc683ef4663648020391beb4
