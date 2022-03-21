@@ -1,0 +1,53 @@
+
+QCC:
+
+
+DISCO:
+
+* when entering a dir in the 011_elevens dir, you have use ''
+
+Log:
+
+In class
+
+public static void perfectShuffle(int[] values) {
+		int[] shuffled = new int[values.length];
+		int k = 0;
+		for (int j = 0; j <= values.length / 2 ; j++){
+			shuffled[k] = values[j];
+			System.out.println("k: " + k);
+			System.out.println("j: " + j);
+
+			k = k + 2;
+		}
+		k = 1;
+		for (int i = 0; i <= values.length / 2; i++){
+			shuffled[k] = values[i];
+			k = k + 2;
+		}       
+	}
+
+
+public static void selectionShuffle(int[] values) {
+		int[] shuffled = new int[52];
+		for (int k = 0;	k <= 51; k++){
+			int j = (int) (Math.random() * k);
+			if (values[k] == 0){
+				shuffled[k] = values[j];
+				values[j] = 0;
+			}
+		}
+	}
+
+
+Sunday:
+
+- 
+
+- 
+
+6:28 
+    - ran into a particularly annoying NullPointerException error
+    - Checked QAF and API to help with debugging 
+6:57
+    - figured out the bug -> the arraylist wasn't initialized properly
