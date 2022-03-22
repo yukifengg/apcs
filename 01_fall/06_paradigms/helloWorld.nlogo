@@ -1,0 +1,1 @@
+observer > print "Hello, World"
