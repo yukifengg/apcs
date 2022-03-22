@@ -1,3 +1,8 @@
+//KAFFEINE CIDS: ANJINI KATARI, YUKI FENG, JOSHUA GAO, DIANA AKHMEDOVA
+//LAB07: ELEVENS!!
+//APCS PD08
+//2021-03-20
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -30,7 +35,13 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		cards = new ArrayList<Card>();
+		for(int i = 0; i < ranks.length; i++){
+			Card yip = new Card(ranks[i], suits[i], values[i]);
+			size ++;
+			cards.add(yip);
+		}
+		shuffle();
 	}
 
 
@@ -39,7 +50,10 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if (size == 0){
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -47,7 +61,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return size;
 	}
 
 	/**
@@ -55,7 +69,6 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
 	}
 
 	/**
@@ -64,7 +77,12 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if (size == 0){
+			return null;
+		}
+		Card whoa = cards.get(size - 1);
+		size --;
+		return whoa;
 	}
 
 	/**

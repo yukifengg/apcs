@@ -1,3 +1,8 @@
+//KAFFEINE CIDS: ANJINI KATARI, YUKI FENG, JOSHUA GAO, DIANA AKHMEDOVA
+//LAB07: ELEVENS!!
+//APCS PD08
+//2021-03-20
+
 /**
  * This is a class that tests the Deck class.
  */
@@ -8,6 +13,16 @@ public class DeckTester {
 	 *	@param args is not used.
 	 */
 	public static void main(String[] args) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		String[] ranks = new String[] {"King", "Queen", "Jack"};
+		String[] suit =  new String[] {"Clubs", "Clubs", "Diamonds"};
+		int[] pointVal =  new int[] {13, 33, 9};
+
+		Deck snazzy = new Deck(ranks, suit, pointVal);
+
+		System.out.println(snazzy.isEmpty());
+		System.out.println(snazzy.size());
+		System.out.println(snazzy.deal());
+		System.out.println(snazzy);
+
 	}
 }
