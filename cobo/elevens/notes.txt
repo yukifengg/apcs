@@ -4,54 +4,208 @@
 //2021-03-20
 
 QCC:
+* For perfectshuffle(), we think it should shuffle a deck {0 1 2 3} once to
+  return {0 2 1 3}, but it returns {0 1 2 3}. Why is that not shuffled?
+* Why does efficient selection shuffle only work when decrementing, not
+  incrementing? CB states that decrementing is faster, but the time should not
+  make it an issue...right?
 
 
 DISCO:
 
 * when entering a dir in the 011_elevens dir, you have use ''
 
-Log:
+----------------------------------ACT QS---------------------------------------
+ACTIVITY 2
+1. Explain in your own words the relationship between a deck and a card.
+    ///
+    Deck creates an ArrayList of cards with their specifications and then stores
+    these cards.
+    ///
 
-In class
+2. Consider the deck initialized with the statements below. How many cards does
+the deck contain?
+    String[] ranks = {"jack", "queen", "king"};
+      String[] suits = {"blue", "red"};
+      int[] pointValues = {11, 12, 13};
+      Deck d = new Deck(ranks, suits, pointValues);
+    ///
+    The deck would contain three cards because those are the maximum unique
+    combinations.
+    ///
 
-public static void perfectShuffle(int[] values) {
-		int[] shuffled = new int[values.length];
-		int k = 0;
-		for (int j = 0; j <= values.length / 2 ; j++){
-			shuffled[k] = values[j];
-			System.out.println("k: " + k);
-			System.out.println("j: " + j);
+3. The game of Twenty-One is played with a deck of 52 cards. Ranks run from ace
+(highest) down to 2 (lowest). Suits are spades, hearts, diamonds, and clubs as
+in many other games. A face card has point value 10; an ace has point value 11;
+point values for 2, ..., 10 are 2, ..., 10, respectively. Specify the contents
+of the ranks, suits, and pointValues arrays so that the statement
+      Deck d = new Deck(ranks, suits, pointValues);
+initializes a deck for a Twenty-One game.
+    ///
+    String[] ranks = {"ace", "king", "queen", "jack", "10", "9", "8", "7", "6",
+    "5", "4", "3", "2"};
+    String[] suits = {"spades" "hearts", "diamonds", "clubs"};
+    int[] pointValues = {10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    ///
 
-			k = k + 2;
-		}
-		k = 1;
-		for (int i = 0; i <= values.length / 2; i++){
-			shuffled[k] = values[i];
-			k = k + 2;
-		}       
-	}
+4. Does the order of elements of the ranks, suits, and pointValues arrays matter?
+   ///
+   No, because each card will contain unique groupings of elements regardless of
+   the element order upon initialization of the arrays holding ranks, suits, or
+   values.
+   ///
 
+ACTIVITY 3
+1. Write a static method named flip that simulates a flip of a weighted coin by
+returning either "heads" or "tails" each time it is called. The coin is twice as
+likely to turn up heads as tails. Thus, flip should return "heads" about twice
+as often as it returns "tails."
+    ///
+    public static String flip() {
+      int rando = (int) (Math.random() * 6);
+      if (rando <= 2) {
+        return "tails";
+      }
+      else if (rando <= 4 && rando > 2) {
+        return "heads";
+      }
+    }
+    ///
 
-public static void selectionShuffle(int[] values) {
-		int[] shuffled = new int[52];
-		for (int k = 0;	k <= 51; k++){
-			int j = (int) (Math.random() * k);
-			if (values[k] == 0){
-				shuffled[k] = values[j];
-				values[j] = 0;
-			}
-		}
-	}
+2. Write a static method named arePermutations that, given two int arrays of the
+same length but with no duplicate elements, returns true if one array is a
+permutation of the other (i.e., the arrays differ only in how their contents are
+arranged). Otherwise, it should return false.
+    ///
+    public static boolean arePermutations(int[] a, int[] b){
+      for(int i = 0; i < a.length; i++){
+        boolean perm = false;
+        for(int j = 0; j < b.length; j++){
+          if(a[i] == b[j]){
+            perm = true;
+          }
+        }
+        if(perm){
+          return true;
+        }
+      }
+      return false;
+    }
+    ///
 
+3. Suppose that the initial contents of the values array in Shuffler.java are
+{1, 2, 3, 4}. For what sequence of random integers would the efficient selection
+shuffle change values to contain {4, 3, 2, 1}?
+    ///
+    1, 2, 2, 2
+    ///
 
-Sunday:
+ACTIVITY 6
+1. List all possible plays for the board 5♠ 4♥ 2♦ 6♣ A♠ J♥ K♦ 5♣ 2♠
+    ///
+    ///
 
-- 
+2. If the deck is empty and the board has three cards left, must they be J, Q,
+and K? Why or why not?
+    ///
+    Yes because the cards that are removed cannot be a JQK, so that means these 3
+    cards must contain either rank.
+    ///
 
-- 
+3. Does the game involve any strategy? That is, when more than one play is
+possible, does it matter which one is chosen? Briefly explain your answer.
+    ///
+    no it is based on pure luck of what your cards are drawn at the start of
+    the game.
+    ///
 
-6:28 
-    - ran into a particularly annoying NullPointerException error
-    - Checked QAF and API to help with debugging 
-6:57
-    - figured out the bug -> the arraylist wasn't initialized properly
+ACTIVITY 7
+1. What items would be necessary if you were playing a game of Elevens at your
+desk (not on the computer)? List the private instance variables needed for the
+ElevensBoard class.
+    ///
+    you need Deck and player
+    ///
+
+2. Write an algorithm that describes the actions necessary to play the Elevens
+game.
+    ///
+    1. Start new game
+    2. Check if there are >= 9 cards remaining in the deck
+    3. If true, draw 9 cards. Otherwise draw the rest of the cards in the deck.
+    4. Look for a set of Jack, Queen, and King. If it exists, replace the three cards.
+    5. Look for a set of two cards that adds to 11. If it exists, replace the two cards.
+    6. If nothing was replaced in the last turn, then the game is lost.
+    7. Repeat steps 2-6 until there are no cards left remaining in the deck or on the board.
+    8. Game is won!
+    ///
+
+3. Now examine the partially implemented ElevensBoard.java file found in the
+Activity7 Starter Code directory. Does the ElevensBoard class contain all the
+state and behavior necessary to play the game?
+
+    ///
+    Yes
+    ///
+
+4. ElevensBoard.java contains three helper methods. These helper methods are
+private because they are only called from the ElevensBoard class.
+a. Where is the dealMyCards method called in ElevensBoard?
+    ///
+    it deals the deck of cards
+    ///
+
+b. Which public methods should call the containsPairSum11 and containsJQK
+methods?
+    ///
+    anotherPlayIsPossible(), isLegal()
+    ///
+
+c. It’s important to understand how the cardIndexes method works, and how the
+list that it returns is used. Suppose that cards contains the elements shown
+below. Trace the execution of the cardIndexes method to determine what list will
+be returned. Complete the diagram below by filling in the elements of the
+returned list, and by showing how those values index cards. Note that the
+returned list may have less than 9 elements.
+
+ACTIVITY 8
+1. Discuss the similarities and differences between Elevens, Thirteens, and Tens.
+    ///
+    You play to find cards the sums of these game titles.
+    ///
+2. As discussed previously, all of the instance variables are declared in the
+Board class. But it is the ElevensBoard class that “knows” the board size, and
+the ranks, suits, and point values of the cards in the deck. How do the Board
+instance variables get initialized with the ElevensBoard values? What is the
+exact mechanism?
+3. Now examine the files Board.java, and ElevensBoard.java, found in the
+Activity8 Starter Code directory. Identify the abstract methods in Board.java.
+See how these methods are implemented in ElevensBoard. Do they cover all the
+differences between Elevens, Thirteens, and Tens as discussed in question 1? Why
+or why not?
+
+ACTIVITY 9
+1. The size of the board is one of the differences between Elevens and Thirteens.
+Why is size not an abstract method?
+2. Why are there no abstract methods dealing with the selection of the cards to
+be removed or replaced in the array cards?
+3. Another way to create “IS-A” relationships is by implementing interfaces.
+Suppose that instead of creating an abstract Board class, we created the
+following Board interface, and had ElevensBoard implement it. Would this new
+scheme allow the Elevens GUI to call isLegal and anotherPlayIsPossible
+polymorphically? Would this alternate design work as well as the abstract Board
+class design? Why or why not?
+      public interface Board {
+        boolean isLegal(List<Integer> selectedCards);
+        boolean anotherPlayIsPossible();
+      }
+
+ACTIVITY 11
+1. Set the I_AM_DEBUGGING flags to false and GAMES_TO_PLAY to 10. Run the
+ElevensSimulation program a few times and record the percentage of games won for
+each run. What is the range of win percentages that you saw? Were the percentages
+fairly consistent, or did they vary quite a bit?
+2. Increase the number of games to play to 100. Are the win percentages more
+consistent from run to run?
+3. Experiment with simulating different numbers of games. How many games do you
+need to play in order to get consistent results from run to run?
