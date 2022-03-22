@@ -2,6 +2,7 @@
 //LAB07: ELEVENS!!
 //APCS PD08
 //2021-03-20
+//Time spent: 3.0 hours
 
 QCC:
 * For perfectshuffle(), we think it should shuffle a deck {0 1 2 3} once to
@@ -14,6 +15,7 @@ QCC:
 DISCO:
 
 * when entering a dir in the 011_elevens dir, you have use ''
+* now yuki understands cards slightly
 
 ----------------------------------ACT QS---------------------------------------
 ACTIVITY 2
