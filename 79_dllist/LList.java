@@ -1,42 +1,13 @@
-// Team Acid: Yuki Feng, Tasnim Chowdhury, Faiyaz Rafee
-// APCS pd08
-// HW78: Double Up
-// 2022-03-16
-// time spent: 0.5 hrs
-// kts used -- 2
+/***
+ * class LList v3
+ * Implements a linked list of DLLNodes, each containing String data
+ **/
 
-/*
-DISCO
-*
-
-QCC
-*
-ALGO REM
-  1. Create alias for _head called tmp
-  2. Store the node at index in retVal
-  3. If index is 0, change _head to the second node. If not:
-  4. Iterate through _head and update tmp with each new node value until you reach index-1
-  5. The node at index-1's Next becomes the Next of the Next of tmp.
-  6. Decrement size by 1.
-
-ALGO ADD
-  1. Create alias for _head called tmp
-  2. If index is not 0 or the last index then set tmp to be the node at index.
-    a. Make a copy of this node called newNode
-    b. Change this copy's cargo to newVal and it's CDR to tmp's _nextNode
-    c. Change tmp's CDR to newNode
-  3. If index is 0, use add()
-  4. If index is the last node, set tmp to be the last one by traversal. Create
-  newNode with cargo tobe newVal and its CDR to be null and change tmp's CDR to newNode.
-  5. Increase size by 1.
-*/
-
-public class LList implements List //your List interface must be in same dir
+public class LList implements List //your List.java must be in same dir
 {
 
   //instance vars
-  private LLNode _head;
-  private LLNode _tail;
+  private DLLNode _head, _tail; //pointers to first and last nodes
   private int _size;
 
   // constructor -- initializes instance vars
@@ -49,26 +20,94 @@ public class LList implements List //your List interface must be in same dir
 
   //--------------v  List interface methods  v--------------
 
+  //add a node to end of list
   public boolean add( String newVal )
   {
-    LLNode tmp = new LLNode( newVal, _head );
-    _head = tmp;
-    _size++;
-    return true;
+    addLast( newVal );
+    return true; //per Java API spec
+  }
+
+
+  //insert a node containing newVal at position index
+  public void add( int index, String newVal )
+  {
+    if ( index < 0 || index > size() )
+      throw new IndexOutOfBoundsException();
+
+    else if ( index == size() )
+      addLast( newVal );
+
+    DLLNode newNode = new DLLNode( newVal, null, null );
+
+    //if index==0, insert node before head node
+    if ( index == 0 )
+      addFirst( newVal );
+    else {
+      DLLNode tmp1 = _head; //create alias to head
+
+      //walk tmp1 to node before desired node
+      for( int i=0; i < index-1; i++ )
+        tmp1 = tmp1.getNext();
+
+      //init a pointer to node at insertion index
+      DLLNode tmp2 = tmp1.getNext(); 
+
+      //insert new node
+      newNode.setNext( tmp2 );
+      newNode.setPrev( tmp1 );
+      tmp1.setNext( newNode );
+      tmp2.setPrev( newNode );
+
+      //increment size attribute
+      _size++;
+    }
+  }//end add-at-index
+
+
+  //remove node at pos index, return its cargo
+  public String remove( int index )
+  {
+    if ( index < 0 || index >= size() )
+      throw new IndexOutOfBoundsException();
+
+    if ( index == 0 )
+      return removeFirst();
+    else if ( index == size()-1 )
+      return removeLast();
+    else {
+      DLLNode tmp1 = _head; //create alias to head
+
+      //walk to node before desired node
+      for( int i=0; i < index-1; i++ ) {
+        tmp1 = tmp1.getNext();
+        System.out.println( "tmp1: " + tmp1.getCargo() );
+      }
+      //check target node's cargo hold
+      String retVal = tmp1.getNext().getCargo();
+
+      //remove target node
+      tmp1.setNext( tmp1.getNext().getNext() );
+      System.out.println( "tmp1.getNext: " + tmp1.getNext().getCargo() );
+      tmp1.getNext().setPrev( tmp1 );
+
+      _size--;
+
+      return retVal;
+    }
   }
 
 
   public String get( int index )
   {
     if ( index < 0 || index >= size() )
-	    throw new IndexOutOfBoundsException();
+      throw new IndexOutOfBoundsException();
 
     String retVal;
-    LLNode tmp = _head; //create alias to head
+    DLLNode tmp = _head; //create alias to head
 
     //walk to desired node
     for( int i=0; i < index; i++ )
-	    tmp = tmp.getNext();
+      tmp = tmp.getNext();
 
     //check target node's cargo hold
     retVal = tmp.getCargo();
@@ -100,71 +139,70 @@ public class LList implements List //your List interface must be in same dir
   //return number of nodes in list
   public int size() { return _size; }
 
+  //--------------^  List interface methods  ^--------------
 
-  //insert a node containing newVal at position index
-  public void add( int index, String newVal ) {
 
-    if ( index < 0 || index >= size() )
-	    throw new IndexOutOfBoundsException();
+  //--------------v  Helper methods  v--------------
 
-    LLNode newNode = new LLNode( newVal, null );
+  public void addFirst( String newFirstVal )
+  {
+    //insert new node before first node (prev=null, next=_head)
+    _head = new DLLNode( newFirstVal, null, _head );
 
-    //if index==0, insert node before head node
-    if ( index == 0 )
-	    add( newVal );
-    else {
-	    LLNode tmp = _head; //create alias to head
-
-	    //walk to node before desired node
-	    for( int i=0; i < index-1; i++ )
-        tmp = tmp.getNext();
-
-	    //insert new node
-	    newNode.setNext( tmp.getNext() );
-	    tmp.setNext( newNode );
-
-	    //increment size attribute
-	    _size++;
-    }
+    if ( _size == 0 )
+      _tail = _head;
+    else
+      _head.getNext().setPrev( _head );
+    _size++;
   }
 
 
-  //remove node at pos index, return its cargo
-  public String remove( int index ) {
+  public void addLast( String newLastVal )
+  {
+    //insert new node after last node (prev=_last, next=null)
+    _tail = new DLLNode( newLastVal, _tail, null );
 
-    if ( index < 0 || index >= size() )
-	    throw new IndexOutOfBoundsException();
+    if ( _size == 0 )
+      _head = _tail;
+    else
+      _tail.getPrev().setNext( _tail );
+    _size++;
+  }
 
-    String retVal;
-    LLNode tmp = _head; //create alias to head
 
-    //if index==0, remove head node
-    if ( index == 0 ) {
-	    //check target node's cargo hold
-	    retVal = _head.getCargo();
+  public String getFirst() { return _head.getCargo(); }
 
-	    //remove target node
-	    _head = _head.getNext();
+  public String getLast() { return _tail.getCargo(); }
+
+
+  public String removeFirst()
+  {
+    String retVal = getFirst();
+    if ( size() == 1 ) {
+      _head = _tail = null;
     }
     else {
-	    //walk to node before desired node
-	    for( int i=0; i < index-1; i++ )
-        tmp = tmp.getNext();
-
-	    //check target node's cargo hold
-	    retVal = tmp.getNext().getCargo();
-
-	    //remove target node
-	    tmp.setNext( tmp.getNext().getNext() );
+      _head = _head.getNext();
+      _head.setPrev( null );
     }
-
-    //decrement size attribute
     _size--;
-
     return retVal;
   }
 
-  //--------------^  List interface methods  ^--------------
+  public String removeLast()
+  {
+    String retVal = getLast();
+    if ( size() == 1 ) {
+      _head = _tail = null;
+    }
+    else {
+      _tail = _tail.getPrev();
+      _tail.setNext( null );
+    }
+    _size--;
+    return retVal;
+  }
+  //--------------^  Helper methods  ^--------------
 
 
   // override inherited toString
