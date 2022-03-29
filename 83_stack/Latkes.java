@@ -1,3 +1,9 @@
+// Team Acid: Yuki Feng, Tasnim Chowdhury, Faiyaz Rafee
+// APCS pd08
+// HW83: Stacks on Stacks
+// 2022-03-28
+// time spent: 0.5 hrs
+
 /***
  * class Latkes
  * v1
@@ -7,9 +13,11 @@
 
 /***
     DISCO
-
+    - To remove the outermost element, you just change the size of the stack
+    - Must increase size after pushing element onto the current stack position
+    - Size is used like a position tracker
     QCC
-
+    - What are some instances where stacks would be more beneficial to use than linked lists?
  **/
 
 
@@ -22,67 +30,51 @@ public class Latkes
   //constructor
   public Latkes( int initCapacity )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
+    _stack = new String[initCapacity];
+    _stackSize = 0;
   }// O(?)
 
 
   //means of insertion
   public void push( String s )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    if (isFull()) {
+      return;
+    }
+    _stack[_stackSize] = s;
+    _stackSize++;
+    System.out.println("pushed " + s );
+  }// O(1)
 
 
   //means of removal
   public String pop( )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    if (isEmpty()) {
+      return null;
+    }
+      _stackSize--;
+      return _stack[_stackSize];
+  }// O(1)
 
 
   //chk for emptiness
   public boolean isEmpty()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    return _stackSize < 1;
+  }// O(1)
 
 
   //chk for fullness
   public boolean isFull()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    return _stack.length == _stackSize;
+  }// O(1)
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
 
     Latkes tastyStack = new Latkes(10);
 
@@ -126,7 +118,6 @@ public class Latkes
 
     //stack empty by now; SOP(null)
     System.out.println( tastyStack.pop() );
-      ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
   }//end main()
 
