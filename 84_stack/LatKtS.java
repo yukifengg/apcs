@@ -31,9 +31,11 @@ public class LatKtS
    *                allMatched( "([)]" )        -> false
    *                allMatched( "" )            -> true
    **/
-  // public static boolean allMatched( String s )
-  // {
-  // }
+  public static boolean allMatched( String s )
+  {
+
+    }
+  }
 
 
   //main method to test
