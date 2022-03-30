@@ -15,13 +15,6 @@ public class LatKtS
    **/
   public static String flip( String s )
   {
-    // String[] flipper = new String[s.length()];
-    //convert s into _stack
-    String flipped = "";
-    for (int i = s.length()-1; i > 0; i--) {
-      flipped += s.substring(i,i+1);
-    }
-    return flipped;
   }
 
 
@@ -33,16 +26,14 @@ public class LatKtS
    **/
   public static boolean allMatched( String s )
   {
-
-    }
   }
 
 
   //main method to test
   public static void main( String[] args )
   {
-    System.out.println(flip("stressed"));
     /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+    System.out.println(flip("stressed"));
     System.out.println(allMatched( "({}[()])" )); //true
     System.out.println(allMatched( "([)]" ) ); //false
     System.out.println(allMatched( "(){([])}" ) ); //true
