@@ -10,12 +10,24 @@ public class Stckr
   {
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // USAGE: un-comment exactly 1 assignment below
-    Stack<Z> cakes = new ALStack<Z>();
-    //Stack<Z> cakes = new LLStack<Z>();
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // USAGE: un-comment exactly 1 assignment below
+    Stack<Object> cakes = new ALStack<Object>();
+    //Stack<Z> cakes = new LLStack<Z>();
 
-    //...
+    cakes.push(false);
+    cakes.push("wooow");
+    cakes.push(9.0);
+
+    for (int i = 5; i < 15; i++) {
+        cakes.push(i);
+        System.out.println(cakes.peekTop());
+    }
+
+    while (!cakes.isEmpty()) {
+      System.out.println(cakes.peekTop());
+	    System.out.println(cakes.pop());
+    }
 
   }//end main
 
