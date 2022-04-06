@@ -1,19 +1,19 @@
-Team Phantom Tollbooth :: Clyde Sinclair, Fierce Dragon
+Team YAK: Yuki Feng, Anjini Katari, Kevin Li
 APCS
-LAB08 --
+LAB08: America's Next Top Data Scientist
 2022-04-05
-time spent: <elapsed time in hours, rounded to nearest tenth>
+time spent: 2.5 hrs
 
 
 DISCO
-
+- you have to specify the javac command with -classpath in order to compile foreign files like jar...? (not sure if this is correct)
 
 QCC
+- why do we need jar files? what are they good for?
 
-
-<TNPG>'s CSV FLOW:
+YAK's CSV FLOW:
 <insert your description of your tools and workflow in creating, editing CSV files>
-
+- Kaggle did not load on safari, so firefox had to be used to see the data.
 
 TRUBZ
-<this lab involves using tools that are likely to introduce hiccups; log any troubleshooting issues here>
+- sinbad.jar introduced a lot of troubles in compiling. Yuki suffered from the temptations of sleep when having to type out the path to compiling and running it.
