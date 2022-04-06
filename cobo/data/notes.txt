@@ -1,19 +1,25 @@
 Team YAK: Yuki Feng, Anjini Katari, Kevin Li
 APCS
 LAB08: America's Next Top Data Scientist
-2022-04-05
-time spent: 2.5 hrs
+2022-04-06
+time spent: 4.0 hrs
 
 
 DISCO
-- you have to specify the javac command with -classpath in order to compile foreign files like jar...? (not sure if this is correct)
+- you have to specify the javac command with -classpath in order to direct foreign files like jar
+- encapsulation idea clicked for yukester when handling the Weatherstation and its methods from Welcome_03_List.java
 
 QCC
 - why do we need jar files? what are they good for?
+- when a xml file appears to have an array inside a column, should it be treated like a 2d array?
+- why are we unable to load csv files into the JRE? It was a common pitfall for most of the dojo bretheren.
+
 
 YAK's CSV FLOW:
 <insert your description of your tools and workflow in creating, editing CSV files>
 - Kaggle did not load on safari, so firefox had to be used to see the data.
+- we did not use csv files and instead turned to xml files found on a data.nasa.gov instead of kaggle
 
 TRUBZ
 - sinbad.jar introduced a lot of troubles in compiling. Yuki suffered from the temptations of sleep when having to type out the path to compiling and running it.
+- we could not connect and load csv files into the JRE
