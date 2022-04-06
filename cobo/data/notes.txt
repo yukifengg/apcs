@@ -23,3 +23,59 @@ YAK's CSV FLOW:
 TRUBZ
 - sinbad.jar introduced a lot of troubles in compiling. Yuki suffered from the temptations of sleep when having to type out the path to compiling and running it.
 - we could not connect and load csv files into the JRE
+
+LAB-SPECIFIC PROMPTS
+Activity 1
+
+Google, Piazza, Gmail
+Piazza collects IP address the amount of time spent on particular pages Internet service provider operating system
+The word delimited means having fixed limits. In the context of files, delimiters separate streams of data.
+You can infer what type of data a column should contain, or read the label that hopefully exists.
+Two broad areas of interest: space and computers.
+Space: What type of meteors are most easily documented? Computers: Is there a limit to the amount in which computers can evolve?
+Yes, data sets that apply to the space question can be based on meteorite landings. Data site: data.nasa.gov. Search criteria: meteorites
+https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh
+A: 45,716
+User data captured by the site contributes to Spotify’s ability to recommend music to its listeners and they get a customized listening experience. Yes, positive impacts include people sharing the music to their friends.
+No, but the data was probably collected by seeing what songs are most clicked on by the user and recommending songs that are in the same genre.
+Yes, those that are willing to risk privacy for a more intuitive music player know what they’re getting into.
+
+
+Activity 2
+Cereal
+N/A (ignore this)
+` public class Cereal {} `
+14 instance vars will needed to be created
+String: name
+char: type
+int: calories, protein, fat, sodium, fiber, carbs, sugar, potass, vits, shelf
+double: weight, cups, rating
+N/A (code related)
+N/A (code related)
+Which brand has the least calories?
+What is the trans fat of each cereal?
+Make an instance variable named trans fat with type int.
+
+Activity 3
+The temperature at Atlanta, Hartsfield - Jackson Atlanta International Airport, GA is 63.0F.
+KGYR
+The temperature at Goodyear Municipal, AZ is 88.0F
+Terminal output:
+KATL: 67.0 degrees; Fog/Mist (wind: 180 degrees)
+KSAV: 77.0 degrees; Overcast (wind: 220 degrees)
+KGYR: 73.0 degrees; Clear (wind: 999 degrees)
+Coldest at KATL
+2876 Stations total in NY
+You can filter weather stations by their latitude.
+The Southernmost station is REA POINT and its latitude is 75.37
+You can answer questions about the Southernmost station found in the chosen state.
+You need to write a method that takes in both the Scanner input of state and forms an array out of those states, of which will be iterated through to check for the Southernmost station in that state.
+https://github.com/berry-cs/sinbad/blob/master/tutorials/java/welcome03-objs.md 
+
+ds.hasFields("...", ...)
+String[] fields = ds.fieldNames();
+https://github.com/berry-cs/sinbad/blob/master/docs/quick-java.md
+
+
+Activity 4
+What is the average mass of meteorites? We chose this question because you can formulate the mean by calculating what is found in the data logs.
