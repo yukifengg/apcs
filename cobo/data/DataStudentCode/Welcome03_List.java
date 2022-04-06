@@ -26,14 +26,23 @@ public class Welcome03_List {
       System.out.println("Enter a state abbreviation: ");
       String state = sc.next();
       System.out.println("Stations in " + state);
-      //YAK IMPLEMENTATION
-      int totalStations = 0;
       for (WeatherStation ws : allstns) {
          if (ws.isLocatedInState(state)) {
             System.out.println("  " + ws.getId() + ": " + ws.getName());
-            totalStations++;
          }
       }
-      System.out.println("Total stations: " + totalStations);
+      //YAK IMP------------------
+      WeatherStation southernmost = allstns.get(0);
+
+      for (int i = 1; i < allstns.size(); i++) {
+        WeatherStation ws = allstns.get(i);
+        if (ws.getLat() > southernmost.getLat()) {
+          southernmost = ws;
+        }
+      }
+
+      System.out.println("The Southernmost station is " + southernmost.getName() + " and its latitude is " + southernmost.getLat());
+      //------------------YAK IMP
+
    }
 }

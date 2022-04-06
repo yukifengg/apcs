@@ -40,4 +40,9 @@ public class WeatherStation {
       return this.state.equals(st);
    }
 
+   //yak imp --------
+   public double getLat() {
+     return lat;
+   }
+   //-------  yak imp
 }
