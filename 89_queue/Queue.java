@@ -1,3 +1,18 @@
+// Team Acid: Yuki Feng, Tasnim Chowdhury, Faiyaz Rafee
+// APCS pd08
+// HW89: Queue Two Ways
+// 2022-04-11
+// time spent: 0.5 hrs
+
+/*
+DISCO:
+- the difference between linked list and arraylist queues is that LL uses peek()
+and addLast() for peekFront whereas AL uses get() and add(), respectively.
+
+QCC:
+- which is faster? AL or LL?
+*/
+
 /***
  * interface Queue
  * Includes only methods listed in AP subset of Java
