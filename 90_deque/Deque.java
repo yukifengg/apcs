@@ -6,9 +6,9 @@
 
 /*
 DISCO:
--
+- very similar to last night
 QCC:
--
+- what is advantage of limited capacity deque?
 */
 
 /***
@@ -49,17 +49,17 @@ public interface Deque<QUASAR>
 
   /*
   Retrieves, but does not remove, the head of the queue represented by this deque
-  (in other words, the first element of this deque). This method differs from
-  peek only in that it throws an exception if this deque is empty.
-  */
-  // public QUASAR element();
-
-  /*
-  Retrieves, but does not remove, the head of the queue represented by this deque
   (in other words, the first element of this deque), or returns null if this
   deque is empty.
   */
   public QUASAR peek();
+
+  /*
+  Retrieves, but does not remove, the head of the queue represented by this deque
+  (in other words, the first element of this deque). This method differs from
+  peek only in that it throws an exception if this deque is empty.
+  */
+  // public QUASAR element();
 
   //~~~~~~~~~~~~~~~~~~~end AP subset~~~~~~~~~~~~~~~~~~~
 

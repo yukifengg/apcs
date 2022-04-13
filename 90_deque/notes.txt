@@ -6,7 +6,7 @@
 
 /*
 DISCO:
-- 
+- very similar to last night
 QCC:
-- 
+- what is advantage of limited capacity deque?
 */

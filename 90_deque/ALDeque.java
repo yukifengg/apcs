@@ -6,9 +6,9 @@
 
 /*
 DISCO:
--
+- very similar to last night
 QCC:
--
+- what is advantage of limited capacity deque?
 */
 
 import java.util.ArrayList;
