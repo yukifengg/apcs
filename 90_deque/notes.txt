@@ -1,0 +1,12 @@
+// Team Acid: Yuki Feng, Tasnim Chowdhury, Faiyaz Rafee
+// APCS pd08
+// HW90: Swabbing the Deque
+// 2022-04-12
+// time spent: 0.5 hrs
+
+/*
+DISCO:
+- 
+QCC:
+- 
+*/
