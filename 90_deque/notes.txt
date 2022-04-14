@@ -1,12 +1,14 @@
 // Team Acid: Yuki Feng, Tasnim Chowdhury, Faiyaz Rafee
 // APCS pd08
-// HW90: Swabbing the Deque
-// 2022-04-12
+// HW91: Deque the Halls
+// 2022-04-13
 // time spent: 0.5 hrs
 
 /*
 DISCO:
-- very similar to last night
+- offer element and poll would be good for deques w limited capacity. we think it
+might help with memory so the machine can prevent running out of space?
 QCC:
-- what is advantage of limited capacity deque?
+- Big O?
+- which better? AL or LL -deque? LL already implements Deque, though..?
 */
