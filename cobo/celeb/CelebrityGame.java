@@ -59,6 +59,10 @@ public class CelebrityGame
 	 */
 	public boolean processGuess(String guess)
 	{
+		guess = guess.trim().toLowerCase();
+		if (celebGameList.contains(guess)) {
+			return true;
+		}
 		return false;
 	}
 
