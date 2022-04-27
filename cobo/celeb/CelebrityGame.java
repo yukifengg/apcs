@@ -1,8 +1,15 @@
+/*
+TNPG Chocolate Freds: Anjini Katari, Yuki Feng, Hamim Seam
+APCS pd08
+Lab09: Some Folks Call It Charades
+2022-04-27
+Time spent: 3.0 hrs
+*/
 import java.util.ArrayList;
 
 /**
  * The framework for the Celebrity Game project
- * 
+ *
  * @author cody.henrichsen
  * @version 2.3 25/09/2018 refactored the prepareGame and play methods
  */
@@ -44,7 +51,7 @@ public class CelebrityGame
 
 	/**
 	 * Determines if the supplied guess is correct.
-	 * 
+	 *
 	 * @param guess
 	 *            The supplied String
 	 * @return Whether it matches regardless of case or extraneous external
@@ -70,7 +77,7 @@ public class CelebrityGame
 
 	/**
 	 * Adds a Celebrity of specified type to the game list
-	 * 
+	 *
 	 * @param name
 	 *            The name of the celebrity
 	 * @param guess
@@ -103,7 +110,7 @@ public class CelebrityGame
 	 * Checks that the supplied clue has at least 10 characters or is a series of clues
 	 * This method would be expanded based on your subclass of Celebrity.
 	 * @param clue The text of the clue(s)
-	 * @param type Supports a subclass of Celebrity 
+	 * @param type Supports a subclass of Celebrity
 	 * @return If the clue is valid.
 	 */
 	public boolean validateClue(String clue, String type)
@@ -117,7 +124,7 @@ public class CelebrityGame
 
 	/**
 	 * Accessor method for the current size of the list of celebrities
-	 * 
+	 *
 	 * @return Remaining number of celebrities
 	 */
 	public int getCelebrityGameSize()
@@ -128,7 +135,7 @@ public class CelebrityGame
 	/**
 	 * Accessor method for the games clue to maintain low coupling between
 	 * classes
-	 * 
+	 *
 	 * @return The String clue from the current celebrity.
 	 */
 	public String sendClue()
@@ -139,7 +146,7 @@ public class CelebrityGame
 	/**
 	 * Accessor method for the games answer to maintain low coupling between
 	 * classes
-	 * 
+	 *
 	 * @return The String answer from the current celebrity.
 	 */
 	public String sendAnswer()

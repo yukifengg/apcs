@@ -1,3 +1,10 @@
+/*
+TNPG Chocolate Freds: Anjini Katari, Yuki Feng, Hamim Seam
+APCS pd08
+Lab09: Some Folks Call It Charades
+2022-04-27
+Time spent: 3.0 hrs
+*/
 /**
  * Starts the Celebrity Game application
  * @author cody.henrichsen
@@ -12,7 +19,5 @@ public class CelebrityRunner
 	public static void main(String [] args)
 	{
 		CelebrityGame a = new CelebrityGame();
-		a.prepareGame();
-		a.play();
 	}
 }

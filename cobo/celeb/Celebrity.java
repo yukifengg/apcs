@@ -1,3 +1,11 @@
+/*
+TNPG Chocolate Freds: Anjini Katari, Yuki Feng, Hamim Seam
+APCS pd08
+Lab09: Some Folks Call It Charades
+2022-04-27
+Time spent: 3.0 hrs
+*/
+
 /**
  * Celebrity base class for the Celebrity game.
  * @author cody.henrichsen
@@ -9,12 +17,12 @@ public class Celebrity
 	 * The clue to determine the celebrity
 	 */
 	public String _clue;
-	
+
 	/**
 	 * The answer or name of the celebrity.
 	 */
 	public String _name;
-	
+
 	/**
 	 * Creates a Celebrity instance with the supplied answer and clue
 	 * @param answer
@@ -63,7 +71,7 @@ public class Celebrity
 	{
 		_name = answer;
 	}
-	
+
 	/**
 	 * Provides a String representation of the Celebrity.
 	 */
@@ -74,5 +82,5 @@ public class Celebrity
 		s += _name;
 		return null;
 	}
-	
+
 }
