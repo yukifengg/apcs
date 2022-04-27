@@ -46,6 +46,8 @@ public class StartPanel extends JPanel
    */
   private JRadioButton celebrityRadio;
 
+
+
   /**
    * RadioButton for the Celebrity type.
    */
@@ -74,6 +76,8 @@ public class StartPanel extends JPanel
    * Textfield to type in the clue for the celebrity.
    */
   private JTextField clueField;
+
+  private JTextField nameField;
 
   /**
    * Button used to verify and add a Celebrity to the ArrayList of Celebrity for the game
@@ -132,6 +136,7 @@ public class StartPanel extends JPanel
 
     this.answerField = new JTextField("Type celebrity here (4 letters minimum thx Cher)");
     this.clueField = new JTextField("Enter celebrity clue here (10 letters minimum)");
+    this.nameField = new JTextField("Enter celebrity name here (4 letters minimum)");
     this.addCelebrityButton = new JButton("Add current celebrity");
     this.startButton = new JButton("Start Celebrity game");
     this.celebrityCount = 0;
@@ -189,6 +194,8 @@ public class StartPanel extends JPanel
     this.add(literatureRadio);
     this.add(clueLabel);
     this.add(clueField);
+    this.add(nameField);
+
     this.add(startButton);
     this.add(celebrityCountLabel);
     this.add(addCelebrityButton);
@@ -211,6 +218,7 @@ public class StartPanel extends JPanel
     panelLayout.putConstraint(SpringLayout.WEST, celebrityRadio, 15, SpringLayout.WEST, this);
     panelLayout.putConstraint(SpringLayout.EAST, addCelebrityButton, 0, SpringLayout.EAST, startButton);
     panelLayout.putConstraint(SpringLayout.NORTH, addCelebrityButton, 20, SpringLayout.SOUTH, clueField);
+        panelLayout.putConstraint(SpringLayout.NORTH, addCelebrityButton, 20, SpringLayout.SOUTH, nameField);
     panelLayout.putConstraint(SpringLayout.WEST, addCelebrityButton, 0, SpringLayout.WEST, celebrityRadio);
 
     panelLayout.putConstraint(SpringLayout.NORTH, startButton, 20, SpringLayout.SOUTH, addCelebrityButton);
