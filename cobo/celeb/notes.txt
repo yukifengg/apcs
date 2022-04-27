@@ -1,0 +1,29 @@
+TNPG Chocolate Freds: Anjini Katari, Yuki Feng, Hamim Seam 
+APCS pd08
+Lab09: Some Folks Call It Charades
+2022-04-27
+Time spent: 3.0 hrs
+
+DISCO:
+- For mac users, you may get an error when trying to run CelebrityRunner:
+	Warning: the fonts "Times" and "Times" are not available for the Java logical font "Serif", which may have unexpected appearance or behavior. Re-enable the "Times" font to remove this warning.
+Due to some research, we discovered that the OSx Montery update does not have the Times font installed for some reason, so we simply installed Times into our mac machines from https://www.freebestfonts.com/timr45w-font. That got rid of the font error. 
+
+QCC:
+
+QUESTIONS:
+
+ACT 1:
+1. A celebrity class and a driver class would prob be needed. 
+2. int score, String name, String clue, String type
+3. keep score of how many celebrities were guessed correctly, display the clue and reveal the correct answer, a give up option for those, allow user input to input guesses
+4. all of them but the give up option is the least in terms of priority
+5. public void play () {
+	sets up game
+	displays clue to user
+	user guesses
+	score is updated until no more celebrities can be guessed
+	game ends
+}
+6. Escalator: the size, the flight, the 
+
