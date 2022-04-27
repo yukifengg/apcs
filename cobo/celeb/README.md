@@ -6,4 +6,4 @@
 2. ~~Create a game class with win/lose var, methods to start, validate celeb,
    validate clue, guess, get answer, giving the clue to the user, score keeper,
    a way to add a celeb.~~
-3. Incorporate GUI
+3. ~~Incorporate GUI~~
