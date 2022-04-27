@@ -10,8 +10,12 @@ DISCO:
 Due to some research, we discovered that the OSx Montery update does not have the Times font installed for some reason, so we simply installed Times into our mac machines from https://www.freebestfonts.com/timr45w-font. That got rid of the font error. 
 
 QCC:
+ - Will GUIs be on the exam??
+ - How is this different from working with ANSI?
+ - Is Gui better than ANSI because it's more user friendly for people who use mice?  
+ - Does the machine like GUI better than ANSI? Does the machine care? Which takes more of a toll? 
 
-QUESTIONS:
+COBO ANSWERS:
 
 ACT 1:
 1. A celebrity class and a driver class would prob be needed. 
@@ -25,5 +29,22 @@ ACT 1:
 	score is updated until no more celebrities can be guessed
 	game ends
 }
-6. Escalator: the size, the flight, the 
+6. Escalator: the size, the flights from which it is traveling from and to, the direction. The size should be an object, there can be an incrementing or decrementing the flight object.
+7. N/A
+
+ACT 2:
+1. The constructor in a class creates an instanxe of the class.
+2. The heading of a constructor has no parameterrs, unless overriden.
+3. String name, string clue
+4. setUpGame(), giveClue(), giveUp(), guess(), updateScore()
+5 and 6. N/A
+7. Another celebrity constructor could be a celebrity that the name of the celebrity, the clue for that celebrity, and the type of celebrity they are.
+
+ACT 3:
+1. You can use HTML in the JSComponents. It reminds us of Netlogo because a separate window pops up that is customizable and you can add elements like buttons and text fields. 
+2. it shouild be private.
+3. it should be public because you need to access it to run from another class like CelebrityRunner
+4-11. N/A
+12. CelebrityGame class
+13. name and clue of celebrity
 
