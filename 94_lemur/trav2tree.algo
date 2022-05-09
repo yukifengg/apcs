@@ -1,0 +1,98 @@
+Chocolate Freds:: Anjini Katari, Yuki Feng, Hamim Seam
+APCS pd08
+HW94 -- Reforestation
+2022-05-09
+time spent: 1.0 hrs
+
+
+DISCO
+------------------------------------------------
+* Given a In-order and post/pre order traversal, there can only be 1 tree but
+  if there is a post and pre order traversal, multiple trees are possible.
+================================================
+
+
+QCC
+------------------------------------------------
+* Regarding the last question, is "onto" related to stacks? Like as you traverse
+in order through a tree, you can treat each node like a stack you have to push
+once you have visited them. This was referenced from Trees published by Dr. Chris
+Bourke of University of Nebraska. If this were to be coded in Java, would you
+treat it like a stack?? ALstack or LLStack?
+================================================
+
+
+HOW KEEN ARE YOUR POWERS OF OBSERVATION?
+------------------------------------------------
+Q: For a given binary tree, how many unique pre-order traversals are there?
+A: 1 pre-order traversal
+
+Q: For a given binary tree, how many unique in-order traversals are there?
+A: 1 in-order traversal
+
+Q: For a given binary tree, how many unique post-order traversals are there?
+A: 1 post-order traversal
+
+Q: For a given traversal, how many unique trees could have produced it?
+A: If there's 1 given traversal, there is more than 1 possible tree that
+   can be produced
+
+Q: Given a pre-order traversal, what can you infer about its tree?
+A: You can infer the root and the bottom right-most node.
+
+Q: Given a post-order traversal, what can you infer about its tree?
+A: You can infer the root and the bottom left-most node.
+
+Q: What does "1-to-1" mean?
+A: Given 2 sets of values, every mapped value from set A is mapped to exactly 1 value on set B.
+
+Q: What does "onto" mean?
+A: Given 2 sets of values, every value in set B is mapped onto.
+
+================================================
+ALGO for pre-order and post-order
+------------------------------------------------
+givens: the tree will be balanced
+
+procedure:
+1) establish the root by looking at the first element in pre and the last in post.
+   remove the root from pre and post
+2) set the first element in pre to be the beginning of the left subtree. set the
+   the last element in post to be the beginning of the right subtree.
+3) in the pre list, find the last element of post and remove everything from that
+   index to the last element (inclusive). in the post list, find the first element
+   of pre and remove everything from that index to the first element (inclusive).
+4) repeat steps 2 and 3 till the list is empty
+
+
+
+================================================
+ALGO for pre-order and in-order
+------------------------------------------------
+givens: the tree will be balanced
+
+procedure:
+1) check first value of pre-o, and split in-o by that value; this first value is the root node
+2) move onto next value of pre-o, and split left subtree by that value, until left subtree is empty
+3) continue step 2 with the right subtree
+4) once both left and right subtrees are empty (element is alone),
+   set the lone element as the child of the element it was split from
+   if it was the left subtree, it is the left child; if it was the right subtree, it is the right child
+5) continue steps 2-4 until the pre-o is fully traversed
+   at this point, the root nodes children have been determined, and the tree is complete
+
+
+================================================
+ALGO for post-order and in-order
+------------------------------------------------
+givens: the tree will be balanced
+
+procedure:
+1) check last value of post-o, and split in-o by that value; this last value is the root node
+2) move onto next value of post-o, and split right subtree by that value, until right subtree is empty
+3) continue step 2 with the left subtree
+4) once both left and right subtrees are empty (element is alone),
+   set the lone element as the child of the element it was split from
+   if it was the left subtree, it is the left child; if it was the right subtree, it is the right child
+5) continue steps 2-4 until the post-o is fully traversed
+   at this point, the root nodes children have been determined, and the tree is complete
