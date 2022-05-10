@@ -1,0 +1,26 @@
+Chocolate Freds: Hamim, Yuki, Anjini
+APCS
+HW95-- Algorithm as Data Structure
+2022-05-10t
+time spent: 1.5h
+
+With L = level, d = depth, h = height…
+
+1) a perfect binary tree has 2^0 + 2^1 + 2^2 ...2^n nodes
+
+2) at each level, a perfect binary tree has 2^L nodes
+
+3) height of a complete binary tree w/ n nodes is the number of digits when 
+   you convert n into binary (7 -> 111 -> h = 3 or 15 -> 1111 -> h = 4)
+
+
+DISCO:
+* You can get away with no privacy (even though vscode was yelling at us 
+  for a while)
+
+QCC:
+* When we didn't use println in the pre order traveral method, it 
+  didn't print out...but when we used println it worked...why??
+* When do you need to import a java file inorder to use it? We think 
+  it's when the file is not in the same folder you're trying to access 
+  it from. 
