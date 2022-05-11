@@ -1,0 +1,20 @@
+Chocolate Freds: Hamim, Yuki, Anjini
+APCS
+HW96 -- BSTs is the Perfect Place for Shade
+2022-05-11w
+time spent: 2.5h
+
+DISCO:
+* Search can be done with a while loop instead of recursion
+* In traversals, it's important to account for the null case
+
+QCC:
+* Comment: we should make a checklist of things to checklist
+  when the code isn't working so we don't spend 30 minutes 
+  panicking about not working code when all we did was not 
+  print the return statement...not speaking from experience 
+  at all, no siree. 
+* Are all of our tree functions going to be recursive? Or at 
+  least it suggested that we do them with recusion?
+* Why don't search and the other methods work with a null root? 
+  How do we past this? 
