@@ -1,0 +1,14 @@
+Chocolate Freds: Hamim, Yuki, Anjini
+APCS
+HW97 -- Prune Your Tree
+2022-05-12
+time spent: 2.5h
+
+DISCO:
+* search() is a very helpful function to direct the remove method to the node of
+which you should start checking their subtrees
+
+QCC:
+* why cant we just setValue(null) to null that sucks we just wanna delete the
+child itself, instead of having parent kill it.
+* we were stuck on removing leaves, even though it is a base case...
