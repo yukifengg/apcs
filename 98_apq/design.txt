@@ -1,0 +1,28 @@
+Chocolate Freds: Hamim, Yuki, Anjini
+APCS
+HW98 -- structuring an APQ
+2022-05-13
+time spent: 0.5h
+
+
+Notes on API consultation:
+    - why no size for PriorityQueue?
+    - why are we only working with smaller values? for context,
+      the API shows that there is a peak<in and removeMin method,
+      however there is none for max. 
+    - avalible methods: add(object x), isEmpty(), peekMin(), removeMin()
+
+Design:
+    - Dequeue for priority -> searching for val makes more sense vs 
+      having all the values and add them one at a time 
+    - Enqueue from the left
+    - Value represents priority -> if we enqueue 1 then 18, 18 would 
+      have a greater priority since its value is larget 
+    - To take out an element with priority status just remove it first
+        - deque == remove?
+
+Priorities list:
+    - add(object x)
+    - removeMin()
+    - peekMin()
+    - isEmpty()
