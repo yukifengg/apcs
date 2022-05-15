@@ -1,1 +1,11 @@
-poop
+Chocolate Freds: Hamim Seam, Yuki Feng, Anjini Katari
+APCS
+HW99: Some Are More Equal Than Others, Codified
+2022-05-15
+time spent: 0.5h
+
+DISCO:
+- A priority queue can be made by implementing a generic typed ArrayList. 
+
+QCC:
+- Friday had nice weather.
