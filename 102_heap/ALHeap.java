@@ -32,7 +32,7 @@ public class ALHeap
   {
     String foo = "[";
     for (int i = 0; i < _heap.size(); i++) {
-      foo += _heap.get(i);
+      foo += _heap.get(i) + ", ";
     }
     foo += "]";
     return foo;
@@ -65,7 +65,11 @@ public class ALHeap
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
    * ALGO:
-   * <your clear && concise procedure here>
+   * 1. add node with addVal as leaf
+   2. in order to maintain heapness, compare it to its parent. If its value is
+   lower than its parent, swap the nodes.
+   3. Keep on comparing subtree and parent node and swapping if applicable until
+   you either reach the root or the addVal node is in the correct level order.
    */
   public void add( Integer addVal )
   {
@@ -75,23 +79,13 @@ public class ALHeap
     int rc = 2 * p + 2;
     int lc = 2 * p + 1;
 
-    if (minOf(addVal, rc) == addVal){
+    while (minOf(addVal, rc) == addVal){
       swap(_heap.indexOf(addVal), _heap.indexOf(rc));
     }
-    else if (minOf(addVal, lc) == addVal){
+    while (minOf(addVal, lc) == addVal){
       swap(_heap.indexOf(addVal), _heap.indexOf(lc));
     }
-  }//O(n)
-
-  public void help( Integer addVal, int rc, int lc){
-    if (minOf(addVal, rc) == addVal){
-      swap(_heap.indexOf(addVal), _heap.indexOf(rc));
-    }
-    else if (minOf(addVal, lc) == addVal){
-      swap(_heap.indexOf(addVal), _heap.indexOf(lc));
-    }
-  }
-
+  } //O(n)
 
   /**
    * removeMin()  ---  means of removing an element from heap
@@ -113,6 +107,7 @@ public class ALHeap
    */
   // private int minChildPos( int pos )
   // {
+  //   return (minOf)
   // }//O(?)
 
 
