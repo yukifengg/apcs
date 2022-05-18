@@ -4,7 +4,7 @@
  * Implements a min heap using an ArrayList as underlying container
  */
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class ALHeap
 {
@@ -31,7 +31,7 @@ public class ALHeap
   public String toString()
   {
     String foo = "[";
-    for (int i = 0; i < _heap.size(), i++) {
+    for (int i = 0; i < _heap.size(); i++) {
       foo += _heap.get(i);
     }
     foo += "]";
@@ -45,8 +45,8 @@ public class ALHeap
    */
   public boolean isEmpty()
   {
-    for 
-  }//O(?)
+    return (_heap.size() == 0);
+  }//O(1)
 
 
   /**
@@ -56,7 +56,8 @@ public class ALHeap
    */
   public Integer peekMin()
   {
-  }//O(?)
+    return _heap.get(0);
+  }//O(1)
 
 
   /**
@@ -68,7 +69,28 @@ public class ALHeap
    */
   public void add( Integer addVal )
   {
-  }//O(?)
+    _heap.add(addVal); //adds val to AL
+
+    int p = (_heap.indexOf(addVal) - 1) / 2;
+    int rc = 2 * p + 2;
+    int lc = 2 * p + 1;
+
+    if (minOf(addVal, rc) == addVal){
+      swap(_heap.indexOf(addVal), _heap.indexOf(rc));
+    }
+    else if (minOf(addVal, lc) == addVal){
+      swap(_heap.indexOf(addVal), _heap.indexOf(lc));
+    }
+  }//O(n)
+
+  public void help( Integer addVal, int rc, int lc){
+    if (minOf(addVal, rc) == addVal){
+      swap(_heap.indexOf(addVal), _heap.indexOf(rc));
+    }
+    else if (minOf(addVal, lc) == addVal){
+      swap(_heap.indexOf(addVal), _heap.indexOf(lc));
+    }
+  }
 
 
   /**
@@ -78,9 +100,9 @@ public class ALHeap
    * ALGO:
    * <your clear && concise procedure here>
    */
-  public Integer removeMin()
-  {
-  }//O(?)
+  // public Integer removeMin()
+  // {
+  // }//O(?)
 
 
   /**
@@ -89,9 +111,9 @@ public class ALHeap
    * -1 if no children, or if input pos is not in ArrayList
    * Postcondition: Tree unchanged
    */
-  private int minChildPos( int pos )
-  {
-  }//O(?)
+  // private int minChildPos( int pos )
+  // {
+  // }//O(?)
 
 
   //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
@@ -115,7 +137,6 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ALHeap pile = new ALHeap();
 
       pile.add(2);
@@ -139,6 +160,7 @@ public class ALHeap
       pile.add(9);
       System.out.println(pile);
 
+      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
