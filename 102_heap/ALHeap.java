@@ -4,7 +4,7 @@
  * Implements a min heap using an ArrayList as underlying container
  */
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class ALHeap
 {
@@ -17,7 +17,6 @@ public class ALHeap
    */
   public ALHeap()
   {
-    _heap = new ArrayList<Integer>();
   }
 
 
@@ -30,13 +29,7 @@ public class ALHeap
    */
   public String toString()
   {
-    String foo = "[";
-    for (int i = 0; i < _heap.size(); i++) {
-      foo += _heap.get(i) + ", ";
-    }
-    foo += "]";
-    return foo;
-  }//O(n)
+  }//O(?)
 
 
   /**
@@ -45,8 +38,7 @@ public class ALHeap
    */
   public boolean isEmpty()
   {
-    return (_heap.size() == 0);
-  }//O(1)
+  }//O(?)
 
 
   /**
@@ -56,8 +48,7 @@ public class ALHeap
    */
   public Integer peekMin()
   {
-    return _heap.get(0);
-  }//O(1)
+  }//O(?)
 
 
   /**
@@ -65,27 +56,12 @@ public class ALHeap
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
    * ALGO:
-   * 1. add node with addVal as leaf
-   2. in order to maintain heapness, compare it to its parent. If its value is
-   lower than its parent, swap the nodes.
-   3. Keep on comparing subtree and parent node and swapping if applicable until
-   you either reach the root or the addVal node is in the correct level order.
+   * <your clear && concise procedure here>
    */
   public void add( Integer addVal )
   {
-    _heap.add(addVal); //adds val to AL
+  }//O(?)
 
-    int p = (_heap.indexOf(addVal) - 1) / 2;
-    int rc = 2 * p + 2;
-    int lc = 2 * p + 1;
-
-    while (minOf(addVal, rc) == addVal){
-      swap(_heap.indexOf(addVal), _heap.indexOf(rc));
-    }
-    while (minOf(addVal, lc) == addVal){
-      swap(_heap.indexOf(addVal), _heap.indexOf(lc));
-    }
-  } //O(n)
 
   /**
    * removeMin()  ---  means of removing an element from heap
@@ -94,9 +70,9 @@ public class ALHeap
    * ALGO:
    * <your clear && concise procedure here>
    */
-  // public Integer removeMin()
-  // {
-  // }//O(?)
+  public Integer removeMin()
+  {
+  }//O(?)
 
 
   /**
@@ -105,10 +81,9 @@ public class ALHeap
    * -1 if no children, or if input pos is not in ArrayList
    * Postcondition: Tree unchanged
    */
-  // private int minChildPos( int pos )
-  // {
-  //   return (minOf)
-  // }//O(?)
+  private int minChildPos( int pos )
+  {
+  }//O(?)
 
 
   //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
@@ -123,7 +98,7 @@ public class ALHeap
   //swap for an ArrayList
   private void swap( int pos1, int pos2 )
   {
-    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
+    _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -132,6 +107,7 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       ALHeap pile = new ALHeap();
 
       pile.add(2);
@@ -155,7 +131,6 @@ public class ALHeap
       pile.add(9);
       System.out.println(pile);
 
-      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
